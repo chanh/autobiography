@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Family Story</title>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --paper: #faf8f3;
+      --accent: #8b2500;
+      --muted: #6b6b6b;
+      --rule: #e0d9cc;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 60px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    header .subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    header .byline {
+      font-style: italic;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    nav {
+      max-width: 680px;
+      margin: 48px auto;
+      padding: 0 20px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 48px;
+    }
+
+    nav h2 {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    nav ol {
+      list-style: none;
+      counter-reset: chapters;
+    }
+
+    nav ol li {
+      counter-increment: chapters;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--rule);
+      color: var(--muted);
+    }
+
+    nav ol li::before {
+      content: counter(chapters, upper-roman);
+      font-size: 0.75rem;
+      color: var(--accent);
+      min-width: 28px;
+    }
+
+    nav ol li a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    nav ol li a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 120px;
+    }
+
+    .chapter {
+      margin-top: 72px;
+    }
+
+    .chapter-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .chapter h2 {
+      font-size: 1.8rem;
+      font-weight: normal;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .chapter p {
+      margin-bottom: 1.4em;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .chapter p:first-of-type::first-letter {
+      font-size: 3.5em;
+      float: left;
+      line-height: 0.8;
+      margin: 6px 8px 0 0;
+      color: var(--accent);
+    }
+
+    .placeholder {
+      color: var(--muted);
+      font-style: italic;
+      border-left: 3px solid var(--rule);
+      padding-left: 20px;
+      margin: 32px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--rule);
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="subtitle">A Family Memoir</div>
+    <h1>Our Family Story</h1>
+    <div class="byline">As told by Hien &amp; family &mdash; compiled with love</div>
+  </header>
+
+  <nav>
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#origins">Origins &amp; Early Life</a></li>
+      <li><a href="#coming-of-age">Coming of Age</a></li>
+      <li><a href="#family">Building a Family</a></li>
+      <li><a href="#new-world">A New World</a></li>
+      <li><a href="#legacy">Legacy &amp; Reflection</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section class="chapter" id="origins">
+      <div class="chapter-label">Chapter I</div>
+      <h2>Origins &amp; Early Life</h2>
+      <div class="placeholder">
+        This chapter will tell the story of where our family comes from — the places, the people, and the world as it was when it all began.
+      </div>
+    </section>
+
+    <section class="chapter" id="coming-of-age">
+      <div class="chapter-label">Chapter II</div>
+      <h2>Coming of Age</h2>
+      <div class="placeholder">
+        The years of growing up — school, friends, hardships, and the experiences that shaped who we became.
+      </div>
+    </section>
+
+    <section class="chapter" id="family">
+      <div class="chapter-label">Chapter III</div>
+      <h2>Building a Family</h2>
+      <div class="placeholder">
+        How our family came together — meeting, marriage, and the early years of raising children.
+      </div>
+    </section>
+
+    <section class="chapter" id="new-world">
+      <div class="chapter-label">Chapter IV</div>
+      <h2>A New World</h2>
+      <div class="placeholder">
+        The journey to a new country, a new life — the challenges, sacrifices, and small victories along the way.
+      </div>
+    </section>
+
+    <section class="chapter" id="legacy">
+      <div class="chapter-label">Chapter V</div>
+      <h2>Legacy &amp; Reflection</h2>
+      <div class="placeholder">
+        Looking back — what matters most, what we hope to pass on, and the story we want our children to carry forward.
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    A work in progress &mdash; written for the family, by the family.
+  </footer>
+
+</body>
+</html>
