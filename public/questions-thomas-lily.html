@@ -65,8 +65,7 @@
       line-height: 1.75;
     }
 
-    .preamble .tip {
-      background: none;
+    .tip {
       border-left: 3px solid var(--accent);
       padding: 14px 20px;
       font-size: 0.88rem;
@@ -75,67 +74,104 @@
       margin-top: 10px;
     }
 
+    /* depth ladder graphic */
+    .depth-guide {
+      max-width: 680px;
+      margin: 40px auto 0;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .depth-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 10px 16px;
+      border-left: 3px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+
+    .depth-row:hover { border-left-color: var(--accent); }
+
+    .depth-row .lvl-badge {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+      min-width: 52px;
+    }
+
+    .depth-row .lvl-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .depth-row .lvl-desc strong {
+      color: var(--ink);
+      font-weight: normal;
+    }
+
     main {
       max-width: 720px;
       margin: 0 auto;
       padding: 60px 20px 80px;
     }
 
-    /* ── Phase blocks ── */
-    .phase {
-      margin-bottom: 64px;
+    /* ── Level blocks ── */
+    .level {
+      margin-bottom: 72px;
     }
 
-    .phase-header {
+    .level-header {
+      border-top: 2px solid var(--accent);
+      padding-top: 26px;
+      margin-bottom: 8px;
       display: flex;
       align-items: baseline;
       gap: 18px;
-      border-top: 2px solid var(--accent);
-      padding-top: 26px;
-      margin-bottom: 6px;
     }
 
-    .phase-num {
+    .level-num {
       font-size: 0.7rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent);
       white-space: nowrap;
-      padding-top: 2px;
     }
 
-    .phase-header h2 {
+    .level-header h2 {
       font-size: 1.55rem;
       font-weight: normal;
       color: var(--ink);
     }
 
-    .phase-desc {
+    .level-desc {
       font-size: 0.88rem;
       font-style: italic;
       color: var(--muted);
-      margin-bottom: 32px;
-      padding-left: 0;
+      margin-bottom: 34px;
     }
 
-    /* ── Topic groups within a phase ── */
+    /* ── Topic groups ── */
     .topic {
-      margin-bottom: 36px;
+      margin-bottom: 34px;
     }
 
     .topic h3 {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
       padding-bottom: 8px;
       border-bottom: 1px solid var(--rule);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .topic h3 .for-whom {
       color: var(--accent);
-      font-style: normal;
     }
 
     ol.questions {
@@ -148,7 +184,7 @@
       counter-increment: q;
       position: relative;
       padding-left: 2.4em;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       font-size: 1rem;
       line-height: 1.7;
     }
@@ -164,15 +200,15 @@
 
     ol.questions li .note {
       display: block;
-      font-size: 0.83rem;
+      font-size: 0.82rem;
       font-style: italic;
       color: var(--muted);
       margin-top: 3px;
     }
 
-    ol.questions li .for {
+    .for {
       display: inline-block;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
@@ -183,12 +219,7 @@
       vertical-align: middle;
       position: relative;
       top: -1px;
-    }
-
-    .divider-rule {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 56px 0;
+      white-space: nowrap;
     }
 
     footer {
@@ -202,7 +233,7 @@
 
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
-      .phase-header h2 { font-size: 1.3rem; }
+      .level-header h2 { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -211,256 +242,187 @@
   <header>
     <div class="subtitle">A Family Memoir in Progress</div>
     <h1>Thomas &amp; Lily</h1>
-    <div class="byline">Interview questions for a memoir of two lives from Hong Kong to New Jersey</div>
+    <div class="byline">Interview questions for a memoir of two lives — from Hong Kong to New Jersey</div>
   </header>
 
   <div class="preamble">
     <p>
-      These questions are designed for Thomas and Lily individually as well as together. They are
-      ordered so that a complete and meaningful book can be written from whatever has been answered
-      so far — whether that is Phase 1 alone or all eight phases. Start at the beginning and go
-      as far as the conversation takes you.
+      These questions are organized into five levels of depth. Each level covers
+      <em>all the major chapters of their lives</em> — origins, Hong Kong, MIT, meeting each other,
+      career, raising Angela and Jennifer, and legacy — but at increasing levels of detail.
     </p>
     <p>
-      Questions marked <strong>Thomas</strong> or <strong>Lily</strong> are best asked separately.
-      Questions marked <strong>Both</strong> are richest with both present.
-      Unmarked questions can be asked to either or both.
+      This means a complete and coherent memoir can be written from whatever level they reach.
+      Stop at Level 1 and there is a short but whole story. Reach Level 5 and there is a rich, fully-textured one.
     </p>
     <div class="tip">
-      <strong>Recording tip:</strong> Start each session by asking them to state their full name,
-      where they were born, and today's date. Even a few sentences of that kind of grounding
-      makes the recording much easier to work with later.
+      <strong>Recording tip:</strong> Start each session by asking them to say their full name
+      and today's date. Questions marked <strong>Thomas</strong> or <strong>Lily</strong> are
+      best asked separately. Questions marked <strong>Both</strong> are richest with both present.
+    </div>
+  </div>
+
+  <div class="depth-guide">
+    <div class="depth-row">
+      <span class="lvl-badge">Level 1</span>
+      <span class="lvl-desc"><strong>The Spine</strong> — one question per life chapter. Enough for a complete short memoir.</span>
+    </div>
+    <div class="depth-row">
+      <span class="lvl-badge">Level 2</span>
+      <span class="lvl-desc"><strong>The Flesh</strong> — key details and context added to every chapter.</span>
+    </div>
+    <div class="depth-row">
+      <span class="lvl-badge">Level 3</span>
+      <span class="lvl-desc"><strong>The Texture</strong> — specific memories, named people, turning-point moments.</span>
+    </div>
+    <div class="depth-row">
+      <span class="lvl-badge">Level 4</span>
+      <span class="lvl-desc"><strong>The Grain</strong> — sensory details, names and dates, scenes rendered precisely.</span>
+    </div>
+    <div class="depth-row">
+      <span class="lvl-badge">Level 5</span>
+      <span class="lvl-desc"><strong>The Archive</strong> — documents, photographs, stories never told, the long tail.</span>
     </div>
   </div>
 
   <main>
 
-    <!-- ══════════════════════════════════════════════════
-         PHASE 1: The Essential Arc
-         ══════════════════════════════════════════════════ -->
-    <div class="phase">
-      <div class="phase-header">
-        <div class="phase-num">Phase 1</div>
-        <h2>The Essential Arc</h2>
+    <!-- ══════════════════════════════════════
+         LEVEL 1 — THE SPINE
+         ══════════════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-num">Level 1</div>
+        <h2>The Spine</h2>
       </div>
-      <p class="phase-desc">
-        Start here. These ten questions, answered fully, yield enough for a complete short memoir.
-        Everything in later phases adds depth and detail to this foundation.
+      <p class="level-desc">
+        One or two questions per life chapter. If recording stops here, there is still a complete story — thin but whole, touching every major beat from Hong Kong to today.
       </p>
 
       <div class="topic">
         <h3>Who They Are</h3>
         <ol class="questions">
           <li>
-            Please state your full name, where you were born, and approximately when.
-            <span class="note">This grounds every recording. Ask both separately.</span>
+            Please state your full name, where you were born, and roughly when.
+            <span class="note">Ask each separately. This anchors every recording.</span>
           </li>
           <li>
-            In your own words, describe the arc of your life from Hong Kong to where you are today — as if you were telling it to a great-grandchild who knows nothing about you.
-            <span class="note">A free, open question. Don't interrupt. This single answer often becomes the spine of the whole book.</span>
-          </li>
-          <li>
-            What was your family like growing up? Who were your parents, and did you have brothers and sisters?
-          </li>
-          <li>
-            What was Hong Kong like when you were a child? What do you remember most vividly about the place itself?
+            In your own words, tell me the arc of your life — from growing up in Hong Kong to where you are right now — as if you were explaining it to a great-grandchild who knows nothing about you.
+            <span class="note">Don't interrupt. This single answer often becomes the spine of the whole book.</span>
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>The Journey</h3>
+        <h3>Hong Kong</h3>
         <ol class="questions">
           <li>
-            What brought you to the United States? Whose idea was it, and what were you hoping for?
-          </li>
-          <li>
-            When did you first arrive in America, and what were your first impressions?
-          </li>
-          <li>
-            How did the two of you meet? <span class="for">Both</span>
+            What was your family like growing up, and what was Hong Kong like as a place?
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>The Life Built</h3>
+        <h3>Coming to America</h3>
         <ol class="questions">
           <li>
-            How did you end up settling in New Jersey? What made it home?
+            What brought you to the United States, and why MIT?
           </li>
           <li>
-            Tell me about Angela and Jennifer — what are your clearest memories of each of them growing up? <span class="for">Both</span>
-          </li>
-          <li>
-            What do you most want your grandchildren — and the generations after them — to know about who you are and where this family came from? <span class="for">Both</span>
-          </li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         PHASE 2: Childhood in Hong Kong
-         ══════════════════════════════════════════════════ -->
-    <div class="phase">
-      <div class="phase-header">
-        <div class="phase-num">Phase 2</div>
-        <h2>Growing Up in Hong Kong</h2>
-      </div>
-      <p class="phase-desc">
-        Hong Kong in the 1950s–70s was a city transforming at extraordinary speed — a British
-        colony absorbing waves of mainland refugees, building itself upward, and producing a
-        generation of remarkable strivers. These questions draw out that world.
-      </p>
-
-      <div class="topic">
-        <h3>Thomas's Childhood <span class="for-whom">— Thomas</span></h3>
-        <ol class="questions">
-          <li>
-            What neighborhood did you grow up in, and what was it like day-to-day?
-          </li>
-          <li>
-            Tell me about your father — who was he, what did he do, and what kind of man was he?
-          </li>
-          <li>
-            Tell me about your mother — what was she like, and what role did she play in your life?
-          </li>
-          <li>
-            Did you have brothers and sisters? What were they like, and what happened to each of them?
-          </li>
-          <li>
-            What was your family's financial situation growing up? Was life comfortable, tight, or somewhere in between?
-          </li>
-          <li>
-            What did children do for fun where you grew up? What were your favorite things to do?
-          </li>
-          <li>
-            What were you like as a boy — quiet or loud, serious or mischievous?
-          </li>
-          <li>
-            Were your parents or grandparents originally from mainland China? If so, where, and what brought them to Hong Kong?
+            What was your experience at MIT like — the challenge, the people, what it gave you?
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>Lily's Childhood <span class="for-whom">— Lily</span></h3>
+        <h3>Meeting Each Other <span class="for-whom">— Both</span></h3>
         <ol class="questions">
           <li>
-            What neighborhood did you grow up in, and what was it like?
-          </li>
-          <li>
-            Tell me about your father — who was he, what did he do, what do you remember most about him?
-          </li>
-          <li>
-            Tell me about your mother — what kind of woman was she, and what did she teach you?
-          </li>
-          <li>
-            Did you have brothers and sisters? Tell me about each of them.
-          </li>
-          <li>
-            What was your family's life like materially? Were there things you wished for that you didn't have?
-          </li>
-          <li>
-            What did you love to do as a girl? What were you drawn to?
-          </li>
-          <li>
-            What were you like as a child — how would your parents or siblings have described you?
-          </li>
-          <li>
-            Do you know the story of how your family came to be in Hong Kong — were your parents or grandparents from the mainland?
+            How did the two of you meet, and how did it become a life together?
+            <span class="note">Ask each separately first — the details often differ memorably.</span>
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>Hong Kong Itself</h3>
+        <h3>Building a Life</h3>
         <ol class="questions">
           <li>
-            What did Hong Kong look, smell, and sound like in your childhood? Give me the sensory details.
+            What did you do after MIT — what was your career, and how did you end up in New Jersey?
           </li>
           <li>
-            What language did your family speak at home — Cantonese, another dialect, or a mix?
+            Tell me about Angela and Jennifer — who are they, and what do you most want people to know about raising them? <span class="for">Both</span>
           </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Legacy <span class="for-whom">— Both</span></h3>
+        <ol class="questions">
           <li>
-            How present was English in your life growing up? Was it a language of school, of aspiration, of the street?
-          </li>
-          <li>
-            What do you remember about the British colonial presence — did it feel close or distant in your daily life?
-          </li>
-          <li>
-            Do you have memories of the 1967 riots, or the anxiety of what was happening in mainland China during the Cultural Revolution? How did your family talk about it, if at all?
-          </li>
-          <li>
-            What was the food like — what did your family eat, and what dishes do you still think about?
-          </li>
-          <li>
-            What was the biggest difference between your life in Hong Kong and what you imagined America would be like?
+            What do you most want your grandchildren — and the generations after them — to know about who you are and where this family came from?
           </li>
         </ol>
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════════
-         PHASE 3: School & The Path to MIT
-         ══════════════════════════════════════════════════ -->
-    <div class="phase">
-      <div class="phase-header">
-        <div class="phase-num">Phase 3</div>
-        <h2>School &amp; The Path to MIT</h2>
+    <!-- ══════════════════════════════════════
+         LEVEL 2 — THE FLESH
+         ══════════════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-num">Level 2</div>
+        <h2>The Flesh</h2>
       </div>
-      <p class="phase-desc">
-        Getting into MIT from Hong Kong was an act of both ambition and audacity. These questions
-        trace the academic path that made it possible, and the decision to leave.
+      <p class="level-desc">
+        Key facts and context added to every chapter. Stopping here gives a memoir with real substance — each major period of their lives has shape and color.
       </p>
 
       <div class="topic">
-        <h3>Secondary School</h3>
+        <h3>Origins &amp; Family</h3>
         <ol class="questions">
           <li>
-            What secondary school did you attend, and what was it like?
+            Tell me about your parents — who were they, what did they do, and what kind of people were they?
+            <span class="note">Ask each separately.</span>
           </li>
           <li>
-            What subjects did you love? What were you best at?
+            Did you have brothers and sisters? Tell me briefly about each of them and where they ended up.
           </li>
           <li>
-            Who were the teachers who shaped you — who believed in you, or challenged you, in ways that stuck?
-          </li>
-          <li>
-            Were you already pointed toward science and engineering, or did that direction come later?
-          </li>
-          <li>
-            What did your parents hope you would do with your life? Did that match what you wanted?
-          </li>
-          <li>
-            Who else in your family or social circle had gone abroad to study? Was that a common path, or unusual?
+            Were your parents or grandparents originally from mainland China? If so, what brought them to Hong Kong?
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>Choosing America &amp; MIT</h3>
+        <h3>Hong Kong Childhood</h3>
         <ol class="questions">
           <li>
-            When did the idea of going to university in America first enter your mind? Whose idea was it?
+            What neighborhood did you grow up in, and what was daily life like there?
           </li>
           <li>
-            Why MIT specifically? What did it mean to you before you ever set foot there?
+            What was your family's financial situation? Was life comfortable, tight, or somewhere in between?
           </li>
           <li>
-            What was the application process like from Hong Kong — how did you even know how to do it?
+            What language did your family speak at home?
           </li>
           <li>
-            Do you remember the moment you found out you were accepted? What happened?
+            What do you remember most vividly about Hong Kong as a place — the sounds, the smells, the feel of it?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Education &amp; Leaving</h3>
+        <ol class="questions">
+          <li>
+            What were you like as a student — what subjects drew you, and what did you dream of doing?
           </li>
           <li>
-            How did your parents react when they found out you were going to America for university?
+            Whose idea was it to apply to an American university, and why MIT specifically?
           </li>
           <li>
-            What did you bring with you? What did you pack for a life in a country you had never visited?
-          </li>
-          <li>
-            Were you scared? Excited? What was going through your mind in the days before you left Hong Kong?
+            How did your parents react when they found out you were going to America?
           </li>
         </ol>
       </div>
@@ -469,358 +431,434 @@
         <h3>MIT</h3>
         <ol class="questions">
           <li>
-            Describe your first days at MIT — the campus, the people, the feeling of arriving.
-          </li>
-          <li>
-            What was the biggest culture shock at MIT or in Cambridge, Massachusetts?
-          </li>
-          <li>
-            How did your English hold up? Were there moments when the language was a real barrier?
-          </li>
-          <li>
             What did you study, and what drew you to that field?
           </li>
           <li>
-            What were the hardest moments at MIT? Was there a point where you doubted you could get through?
+            What was the biggest culture shock — at MIT or in America more broadly?
+          </li>
+          <li>
+            What was the hardest thing about those years?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Meeting &amp; Marrying <span class="for-whom">— Both</span></h3>
+        <ol class="questions">
+          <li>
+            Where exactly did you meet, and what were the circumstances?
+          </li>
+          <li>
+            What was your first impression of the other person? <span class="note">Ask each separately.</span>
+          </li>
+          <li>
+            Where and when did you get married, and what was the wedding like?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Career &amp; New Jersey</h3>
+        <ol class="questions">
+          <li>
+            Describe the arc of your career — the fields you worked in, the kind of work you found most meaningful.
+          </li>
+          <li>
+            Why New Jersey? What made it the place you stayed?
+          </li>
+          <li>
+            Who were your community in those early years — friends, neighbors, other families from Hong Kong?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Raising Angela &amp; Jennifer <span class="for-whom">— Both</span></h3>
+        <ol class="questions">
+          <li>
+            What language did you speak at home when Angela and Jennifer were growing up?
+          </li>
+          <li>
+            What was the hardest thing about raising children in America while still figuring out the country yourselves?
+          </li>
+          <li>
+            What are you most proud of in how they turned out?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Identity &amp; Reflection</h3>
+        <ol class="questions">
+          <li>
+            How do you identify yourself — as Chinese, as Hong Kongese, as American, or some combination?
+          </li>
+          <li>
+            What do you miss most about Hong Kong?
+          </li>
+          <li>
+            What is the proudest decision of your life?
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         LEVEL 3 — THE TEXTURE
+         ══════════════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-num">Level 3</div>
+        <h2>The Texture</h2>
+      </div>
+      <p class="level-desc">
+        Specific memories, named people, and turning-point moments. This level transforms a factual account into a memoir that feels lived-in.
+      </p>
+
+      <div class="topic">
+        <h3>Origins &amp; Family</h3>
+        <ol class="questions">
+          <li>
+            Tell me a specific memory of your father — not a general impression, but a particular moment or scene you can still picture.
+            <span class="note">Ask each separately.</span>
+          </li>
+          <li>
+            Tell me the same about your mother — a specific scene, not a summary.
+          </li>
+          <li>
+            Do you know the story of how your grandparents came to Hong Kong — what they left behind, and what they were hoping for?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Hong Kong Childhood</h3>
+        <ol class="questions">
+          <li>
+            What did children do for fun in your neighborhood? What were your favorite things to do?
+          </li>
+          <li>
+            What was the food like at home? Are there dishes your mother or grandmother made that you still think about?
+          </li>
+          <li>
+            What was the political atmosphere like when you were growing up — did you have a sense of Hong Kong's relationship to Britain, or to what was happening in mainland China?
+          </li>
+          <li>
+            What did you imagine your future would look like when you were a teenager?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Education &amp; Leaving</h3>
+        <ol class="questions">
+          <li>
+            Was there a teacher or mentor who shaped you in a meaningful way — who believed in you or pushed you?
+          </li>
+          <li>
+            Do you remember the moment you found out you were accepted to MIT? What happened?
+          </li>
+          <li>
+            What did you pack for a life in a country you had never visited? What did you leave behind?
+          </li>
+          <li>
+            What were you feeling in the days before you boarded that plane?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>MIT</h3>
+        <ol class="questions">
+          <li>
+            Describe your first day or first week at MIT — the campus, the people, the feeling of arriving.
           </li>
           <li>
             Who were the friends who mattered most during those years? Are any of them still in your life?
           </li>
           <li>
-            What did MIT teach you beyond the academic subject matter — about how to think, how to work, how to live?
+            Was there a moment at MIT when you doubted yourself — when you wondered if you could actually get through?
           </li>
           <li>
-            What did you do during summers and holidays when you couldn't easily go back to Hong Kong?
+            What did MIT teach you beyond the subject matter — about how to think, how to work, how to be?
           </li>
           <li>
             What is one memory from MIT that you have never forgotten?
           </li>
         </ol>
       </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         PHASE 4: Meeting Each Other
-         ══════════════════════════════════════════════════ -->
-    <div class="phase">
-      <div class="phase-header">
-        <div class="phase-num">Phase 4</div>
-        <h2>Meeting Each Other</h2>
-      </div>
-      <p class="phase-desc">
-        Ask these with both Thomas and Lily present if possible — comparing their memories of the
-        same events is often where the most vivid and surprising details emerge.
-      </p>
 
       <div class="topic">
-        <h3>The Story of How They Met <span class="for-whom">— Both</span></h3>
+        <h3>Meeting &amp; Marrying <span class="for-whom">— Both</span></h3>
         <ol class="questions">
           <li>
-            Tell me the story of how the two of you first met — where, when, the specific circumstances.
-            <span class="note">Ask each separately first, then compare — the details are often wonderfully different.</span>
+            When did you realize it was serious — that this was someone you might spend your life with?
           </li>
           <li>
-            What was your first impression of the other person?
-            <span class="note">Ask each separately.</span>
+            Did you have to work to convince the other person, or was it mutual from the start? <span class="note">Ask each separately.</span>
           </li>
           <li>
-            When did you realize it was serious — that this person might be someone you would spend your life with?
+            How did it happen — the proposal?
           </li>
           <li>
-            Did you have to convince the other person, or was it mutual? Who pursued whom?
-          </li>
-          <li>
-            What did your families think? Were there any objections or complications?
-          </li>
-          <li>
-            Tell me about the proposal — how did it happen?
-          </li>
-          <li>
-            Where and when did you get married? What was the wedding like?
-          </li>
-          <li>
-            Looking back, what do you think brought the two of you together beyond the practical circumstances of being at the same place?
-          </li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         PHASE 5: Building a Life in America
-         ══════════════════════════════════════════════════ -->
-    <div class="phase">
-      <div class="phase-header">
-        <div class="phase-num">Phase 5</div>
-        <h2>Building a Life in America</h2>
-      </div>
-      <p class="phase-desc">
-        After MIT came the real work of becoming Americans — careers, a home, citizenship, and
-        the constant negotiation between the world they came from and the one they were building.
-      </p>
-
-      <div class="topic">
-        <h3>Early Career</h3>
-        <ol class="questions">
-          <li>
-            What did you do after MIT — graduate school, a first job, or both?
-          </li>
-          <li>
-            What was your first real job? How did you find it, and what was it like?
-          </li>
-          <li>
-            Describe the arc of your career — the fields you worked in, the kinds of work you found most meaningful.
-          </li>
-          <li>
-            What was the hardest professional challenge you faced, and how did you get through it?
-          </li>
-          <li>
-            Was there a moment in your career that you look back on as a turning point?
-          </li>
-          <li>
-            Did being Chinese-American affect your professional life — in terms of how others treated you, or the choices you made?
+            What did your families think of the match?
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>New Jersey &amp; Putting Down Roots</h3>
+        <h3>Career &amp; New Jersey</h3>
         <ol class="questions">
           <li>
-            Why New Jersey specifically? What brought you there and made you stay?
+            What was your first real job? How did you find it, and what was the first day like?
           </li>
           <li>
-            Describe the first home you owned or rented together. What was the neighborhood like?
+            Was there a turning point in your career — a decision, a project, or an opportunity that changed the direction of things?
           </li>
           <li>
-            Who were your community in those early years — friends, neighbors, other Hong Kong or Chinese families?
-          </li>
-          <li>
-            Did you seek out a Chinese community in New Jersey, or did your social life develop differently?
+            Did you ever experience discrimination or prejudice in professional life? How did you handle it?
           </li>
           <li>
             When did you become American citizens, and what did that feel like?
           </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Raising Angela &amp; Jennifer <span class="for-whom">— Both</span></h3>
+        <ol class="questions">
           <li>
-            Did you ever seriously consider moving back to Hong Kong? What kept you in America?
+            Tell me your clearest, most specific memory of Angela as a child — a particular moment, not a general impression.
+          </li>
+          <li>
+            Tell me the same about Jennifer.
+          </li>
+          <li>
+            How did you transmit Chinese culture to your daughters — through food, through festivals, through discipline, through what you valued?
+          </li>
+          <li>
+            Were there tensions between what you expected of them culturally and what America expected? How did you navigate that?
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>Connections to Hong Kong</h3>
+        <h3>Identity &amp; Hong Kong Over Time</h3>
         <ol class="questions">
           <li>
-            How often did you go back to Hong Kong after settling in New Jersey? What were those trips like?
+            How did you feel as the 1997 handover approached? Did it change how you thought about your decision to stay in America?
           </li>
           <li>
-            How did your relationships with your parents and siblings in Hong Kong evolve over the years of living far away?
+            When you went back to Hong Kong to visit over the years, how did it feel — what had changed, what was the same?
           </li>
           <li>
-            What happened to your parents — when did they pass, and were you able to be with them?
-          </li>
-          <li>
-            What did you think when you heard about the 1997 handover approaching? Did it affect how you thought about Hong Kong, or about your decision to stay in America?
-          </li>
-          <li>
-            How do you feel about Hong Kong today, given everything that has changed there?
-          </li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         PHASE 6: Raising Angela & Jennifer
-         ══════════════════════════════════════════════════ -->
-    <div class="phase">
-      <div class="phase-header">
-        <div class="phase-num">Phase 6</div>
-        <h2>Raising Angela &amp; Jennifer</h2>
-      </div>
-      <p class="phase-desc">
-        The heart of the family's American chapter — two daughters born in New Jersey, growing
-        up between two cultures, shaped by parents who had crossed an ocean to be there.
-      </p>
-
-      <div class="topic">
-        <h3>The Children <span class="for-whom">— Both</span></h3>
-        <ol class="questions">
-          <li>
-            Tell me about Angela — from birth to now. What was she like as a baby, as a little girl, as a teenager? What is she like now?
-          </li>
-          <li>
-            Tell me about Jennifer — the same. What stands out about her at each stage of her life?
-          </li>
-          <li>
-            What is your clearest, most vivid memory of each of them as children — a specific moment, not a general impression?
-          </li>
-          <li>
-            What were the hardest moments of being a parent — with either or both of them?
-          </li>
-          <li>
-            What are you most proud of in how they turned out?
-          </li>
-          <li>
-            Were there things about raising children in America that surprised you — ways it was different from how you were raised?
-          </li>
-        </ol>
-      </div>
-
-      <div class="topic">
-        <h3>Culture, Language &amp; Identity</h3>
-        <ol class="questions">
-          <li>
-            What language did you speak at home when Angela and Jennifer were growing up?
-          </li>
-          <li>
-            Did you try to teach them Cantonese? How did that go?
-          </li>
-          <li>
-            How did you transmit Chinese culture to your daughters — through food, through festivals, through stories, through discipline, through what you valued?
-          </li>
-          <li>
-            Were there tensions between what you expected of them culturally and what America expected of them? How did you navigate that?
-          </li>
-          <li>
-            Did you ever worry that they would grow up too American and lose their connection to where you came from?
-          </li>
-          <li>
-            What Chinese or Hong Kong traditions do you hope will survive in your family for another generation or two?
+            What has surprised you most about how your life turned out — compared to what you imagined when you were young?
           </li>
         </ol>
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════════
-         PHASE 7: Identity, Heritage & Meaning
-         ══════════════════════════════════════════════════ -->
-    <div class="phase">
-      <div class="phase-header">
-        <div class="phase-num">Phase 7</div>
-        <h2>Identity, Heritage &amp; Meaning</h2>
+    <!-- ══════════════════════════════════════
+         LEVEL 4 — THE GRAIN
+         ══════════════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-num">Level 4</div>
+        <h2>The Grain</h2>
       </div>
-      <p class="phase-desc">
-        The reflective questions — about who they are, what they carry, and what they hope
-        will outlast them.
+      <p class="level-desc">
+        Precise sensory details, specific names and dates, and scenes rendered closely enough that a reader feels present. This level makes the difference between a good memoir and a great one.
       </p>
 
       <div class="topic">
-        <h3>Being Chinese-American</h3>
+        <h3>Origins &amp; Family</h3>
         <ol class="questions">
           <li>
-            How do you identify yourself — as Chinese, as Hong Kongese, as American, as all of these, or as something else entirely?
+            What is the full address — or at least the street or district — of the home you grew up in?
           </li>
           <li>
-            Has that sense of identity shifted over the decades you have lived in America?
+            What were your parents' full names, and do you know their birth years?
           </li>
           <li>
-            Have you experienced discrimination or prejudice in America because of your ethnicity? How did you handle it?
+            What did your childhood home look, smell, and sound like? Describe it room by room if you can.
           </li>
           <li>
-            What do you think America got right about how it received you — and what did it get wrong?
-          </li>
-          <li>
-            What does it mean to you that your daughters grew up American in a way you never could?
+            What was a typical weekday morning like when you were ten years old?
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>What Remains of Hong Kong</h3>
+        <h3>Hong Kong</h3>
         <ol class="questions">
           <li>
-            What do you miss most about Hong Kong — not as it is now, but as it was when you were young?
+            What were the sounds of your neighborhood? What did you hear when you opened a window?
           </li>
           <li>
-            Is there a taste, a sound, a smell, or a place from Hong Kong that still lives in you after all these years?
+            Is there a specific dish — from your mother's cooking, or from a place you went — that still represents Hong Kong to you?
           </li>
           <li>
-            Is there a dish you cook that connects you directly to your childhood in Hong Kong?
+            Do you have memories of the 1967 riots, or of the anxiety in Hong Kong during China's Cultural Revolution? How did your family talk about it?
           </li>
           <li>
-            What do you think was lost when you left — and what do you think you gained?
+            What specific friends did you have as a child? What were their names, what were they like?
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>Reflection &amp; Legacy</h3>
+        <h3>Education</h3>
         <ol class="questions">
           <li>
-            What is the decision you made in your life that you are most proud of?
+            What was the name of your secondary school, and what was it known for?
           </li>
           <li>
-            What is something you wish you had done differently?
+            What specific exams or milestones shaped your academic path — and how did you do?
           </li>
           <li>
-            What has surprised you most about how your life turned out — compared to what you imagined it would be when you were young?
+            Was there anyone besides you in your family or neighborhood who had gone to study in America? Who were they, and did their experience influence yours?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>MIT</h3>
+        <ol class="questions">
+          <li>
+            What specifically did you study — what was your degree, your thesis or specialization?
           </li>
           <li>
-            What do you believe in — about how to live, about what matters — that you would want your grandchildren to carry forward?
+            What did you do during summers and school holidays when going back to Hong Kong wasn't easy?
           </li>
           <li>
-            If you could sit across from your twenty-year-old self — standing in Hong Kong, about to leave for America — what would you tell them?
+            Name a professor or advisor who influenced you at MIT. What did they teach you?
           </li>
           <li>
-            What question do you wish someone had asked you before now — something important that no one has ever asked?
+            What were you eating, where were you living, what did a Saturday look like for you at MIT?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Marriage &amp; Early Life Together <span class="for-whom">— Both</span></h3>
+        <ol class="questions">
+          <li>
+            Describe your wedding — who was there, where it was held, what you wore, one moment you remember clearly.
+          </li>
+          <li>
+            Describe the first home you shared together — the neighborhood, the rooms, what it felt like.
+          </li>
+          <li>
+            What was a Sunday like for the two of you in your first year of marriage?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Career</h3>
+        <ol class="questions">
+          <li>
+            What was the name of the first company or institution you worked for? What did the work feel like day-to-day?
+          </li>
+          <li>
+            What is a professional achievement you are genuinely proud of — something specific, not just a title?
+          </li>
+          <li>
+            What is the hardest professional challenge you faced, and what got you through it?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Raising Angela &amp; Jennifer <span class="for-whom">— Both</span></h3>
+        <ol class="questions">
+          <li>
+            Describe the home Angela and Jennifer grew up in — the neighborhood, the school, the feel of the street.
+          </li>
+          <li>
+            Tell me a specific funny story about one of the girls — something that still makes you laugh.
+          </li>
+          <li>
+            Was there a specific moment when you felt the cultural gap between you and your daughters most sharply? What happened?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Hong Kong Connections Over the Years</h3>
+        <ol class="questions">
+          <li>
+            How did your relationships with your parents change over the decades of living far away — how often did you talk, visit, and eventually say goodbye?
+          </li>
+          <li>
+            What happened to your siblings — where are they now, and how close are you?
+          </li>
+          <li>
+            When you visit Hong Kong today, what is gone that you miss? What unexpected thing has survived?
+          </li>
+        </ol>
+      </div>
+
+      <div class="topic">
+        <h3>Reflection</h3>
+        <ol class="questions">
+          <li>
+            If you could sit across from your twenty-year-old self — standing in Hong Kong, about to leave — what would you tell them?
+          </li>
+          <li>
+            Is there anything you wish you had done differently?
+          </li>
+          <li>
+            What do you believe about how to live — something you would want to pass down as a kind of family value?
           </li>
         </ol>
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════════
-         PHASE 8: The Details & The Record
-         ══════════════════════════════════════════════════ -->
-    <div class="phase">
-      <div class="phase-header">
-        <div class="phase-num">Phase 8</div>
-        <h2>The Details &amp; The Record</h2>
+    <!-- ══════════════════════════════════════
+         LEVEL 5 — THE ARCHIVE
+         ══════════════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-num">Level 5</div>
+        <h2>The Archive</h2>
       </div>
-      <p class="phase-desc">
-        These questions gather the specific names, dates, places, and documents that anchor a
-        memoir in verifiable fact and prevent family history from being lost.
+      <p class="level-desc">
+        Documents, photographs, family tree facts, and stories that have never been told. This level ensures nothing is lost — the long tail of a life, gathered before it slips away.
       </p>
 
       <div class="topic">
-        <h3>Family Tree &amp; Dates</h3>
+        <h3>The Family Tree</h3>
         <ol class="questions">
           <li>
-            What are your parents' full names, and do you know their birth years and where they were born?
+            What are your grandparents' full names — on both sides — and do you know where they were born?
           </li>
           <li>
-            What are the full names of your siblings, and where are they now?
+            Do you know anything about family from before your grandparents' generation — names, places, stories of any kind?
           </li>
           <li>
-            Do you know anything about your grandparents — their names, where they came from, what they did?
-          </li>
-          <li>
-            What is the full address of the home or homes you grew up in? Even a neighborhood or street name helps.
-          </li>
-          <li>
-            What year did you arrive in the United States, and what was your visa or immigration status?
-          </li>
-          <li>
-            What year did you become an American citizen?
+            Are there relatives in Hong Kong, mainland China, or elsewhere in the diaspora that Angela and Jennifer don't know well but should?
           </li>
         </ol>
       </div>
 
       <div class="topic">
-        <h3>Documents &amp; Photographs</h3>
+        <h3>Photographs &amp; Documents</h3>
         <ol class="questions">
           <li>
-            Do you have photographs from your childhood in Hong Kong? Can we look at them together and you can identify each person?
+            Do you have photographs from your childhood in Hong Kong? Can we look at them together and you identify each person?
           </li>
           <li>
             Do you have photographs from MIT — from your student years?
           </li>
           <li>
-            Do you have your wedding photographs? Are there people in them we should identify and document?
+            Do you have your wedding photographs? Are there people in them we should identify and record?
           </li>
           <li>
-            Are there any letters, documents, or objects from Hong Kong that you kept — things that survived the move and still matter to you?
+            Are there any letters, documents, or objects from Hong Kong that made it to America with you and still exist?
           </li>
           <li>
-            Are there family members in Hong Kong or elsewhere who might have photographs or documents that we don't have access to? Who should we contact?
+            Are there family members in Hong Kong or elsewhere who might hold photographs or documents that we don't have — who should we contact while we still can?
           </li>
         </ol>
       </div>
@@ -829,16 +867,19 @@
         <h3>Stories Not Yet Told</h3>
         <ol class="questions">
           <li>
-            Is there a story about your family — about your parents, your grandparents, or something that happened — that you have never told your daughters but think they should know?
+            Is there a story about your parents or grandparents — something that happened to them — that you have never told your daughters but think they should know?
           </li>
           <li>
-            Is there anything about your own life that you have never told anyone — that you would like to have on record before it is lost?
+            Is there anything about your own life that you have kept private, that you would now like to have on record?
           </li>
           <li>
-            Is there a person in your life — a friend, a teacher, a colleague, a mentor — who shaped you profoundly, whose name should be in this book?
+            Is there a person — a friend, a teacher, a colleague, a mentor — who shaped your life profoundly but whose name has never come up in this conversation?
           </li>
           <li>
-            Is there anything you want to add — anything this list of questions didn't ask about — that belongs in the story of your life?
+            What question do you wish someone had asked you, that this list didn't?
+          </li>
+          <li>
+            Is there anything you want to add — anything at all — that belongs in the story of your life?
           </li>
         </ol>
       </div>
