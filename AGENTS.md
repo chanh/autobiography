@@ -33,10 +33,16 @@ Interview captions are stored in `captions/` as `.sbv` files (YouTube subtitle f
 
 | File | Language | Summary |
 |------|----------|---------|
-| `captions/8566.sbv` | Vietnamese | Ba describes sponsoring family members to the US (Cậu Nam Biên 2002, Dượng Lương 2003 & 2007), Dượng Lương's lawnmower injury, pride in his landscaping career, giving back to the poor in Vietnam, restoring the ancestral home, and a closing reflection on his life journey for future generations. Relevant to **Ch. IV** and **Ch. V**. |
+| `captions/8223.sbv` | Vietnamese | Mẹ introduction (duplicate/cleaner take of 5733). Arrived US June 6 1994 via HO26. Settled Tacoma → Bellevue WA. Sponsored by Ev family. |
+| `captions/8224.sbv` | Vietnamese | How ba and mẹ met (1968, Nha Trang). Fled to Saigon April 1975. Mẹ stayed for her parents; ba stayed for mẹ. Ba imprisoned 6 years. No wedding photos explained. |
+| `captions/8225.sbv` | Vietnamese | Ba released 1981; ông ngoại died 1980. Mợ Năm also a teacher. Family home built on ông ngoại's land. |
+| `captions/8226.sbv` | Vietnamese | Continuation — life after ba's return; hardship of the era; mẹ teaching. (partial, cuts off) |
+| `captions/8227.sbv` | Vietnamese | Ba's self-introduction (July 4 2022, California). Born 1945, Bình Định. Air Force volunteer, 1 of 3 selected from 200+ in Quy Nhơn. Joined 1966, Squadron 62 Nha Trang. 6 years prison after 1975. HO program. First Nguyễn from Tân Long in America. Relevant to **Ch. I**, **Ch. II**, **Ch. V**. |
+| `captions/8567.sbv` | Vietnamese | Ba's family lineage: ancestor Nguyễn Phúc Khiêm from Huế moved to Bình Định. Story of nhà từ đường — acquired via gambling debts, restored 1920s, repaired by ba twice (post-prison & 2019). Located Thôn Tân Long, xã Nhơn An, quận An Nhơn, Bình Định. Relevant to **Ch. I**, **Ch. V**. |
+| `captions/8571.sbv` | Vietnamese | Mẹ continues April 30 1975 story — at bà Chính's house in Saigon, couldn't leave because of her parents. (partial) Relevant to **Ch. III**. |
 
 ### Content status
-All five chapters are placeholder stubs — no real family content has been written yet.
+All five chapters have been written from the interview captions. Content is in English with Vietnamese translations (data-en / data-vi on every paragraph). Chapters may be expanded as more captions are added.
 
 ### Conventions
 - Keep all content in `public/index.html` (single-file approach)

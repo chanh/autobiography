@@ -27,6 +27,7 @@
       text-align: center;
       padding: 80px 20px 60px;
       border-bottom: 1px solid var(--rule);
+      position: relative;
     }
 
     header .subtitle {
@@ -48,6 +49,46 @@
       font-style: italic;
       color: var(--muted);
       font-size: 1rem;
+    }
+
+    .lang-toggle {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      display: flex;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    .lang-toggle button {
+      background: none;
+      border: none;
+      padding: 6px 14px;
+      cursor: pointer;
+      color: var(--muted);
+      transition: background 0.15s, color 0.15s;
+      font-family: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+    }
+
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: var(--paper);
+    }
+
+    .lang-toggle button:not(.active):hover {
+      background: var(--rule);
+      color: var(--ink);
+    }
+
+    .lang-toggle .divider {
+      width: 1px;
+      background: var(--rule);
     }
 
     nav {
@@ -156,69 +197,176 @@
 <body>
 
   <header>
-    <div class="subtitle">A Family Memoir</div>
-    <h1>Our Family Story</h1>
-    <div class="byline">As told by Hien &amp; family &mdash; compiled with love</div>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <div class="divider"></div>
+      <button id="btn-vi" onclick="setLang('vi')">VI</button>
+    </div>
+    <div class="subtitle"
+      data-en="A Family Memoir"
+      data-vi="Hồi Ký Gia Đình">A Family Memoir</div>
+    <h1
+      data-en="Our Family Story"
+      data-vi="Câu Chuyện Gia Đình Chúng Ta">Our Family Story</h1>
+    <div class="byline"
+      data-en="As told by Hien &amp; family &mdash; compiled with love"
+      data-vi="Được kể bởi Hiền &amp; gia đình &mdash; được biên soạn với tình yêu thương">As told by Hien &amp; family &mdash; compiled with love</div>
   </header>
 
   <nav>
-    <h2>Contents</h2>
+    <h2
+      data-en="Contents"
+      data-vi="Mục Lục">Contents</h2>
     <ol>
-      <li><a href="#origins">Origins &amp; Early Life</a></li>
-      <li><a href="#coming-of-age">Coming of Age</a></li>
-      <li><a href="#family">Building a Family</a></li>
-      <li><a href="#new-world">A New World</a></li>
-      <li><a href="#legacy">Legacy &amp; Reflection</a></li>
+      <li><a href="#origins"
+        data-en="Origins &amp; Early Life"
+        data-vi="Nguồn Gốc &amp; Thời Thơ Ấu">Origins &amp; Early Life</a></li>
+      <li><a href="#coming-of-age"
+        data-en="Coming of Age"
+        data-vi="Tuổi Trưởng Thành">Coming of Age</a></li>
+      <li><a href="#family"
+        data-en="Building a Family"
+        data-vi="Xây Dựng Gia Đình">Building a Family</a></li>
+      <li><a href="#new-world"
+        data-en="A New World"
+        data-vi="Một Thế Giới Mới">A New World</a></li>
+      <li><a href="#legacy"
+        data-en="Legacy &amp; Reflection"
+        data-vi="Di Sản &amp; Suy Ngẫm">Legacy &amp; Reflection</a></li>
     </ol>
   </nav>
 
   <main>
 
     <section class="chapter" id="origins">
-      <div class="chapter-label">Chapter I</div>
-      <h2>Origins &amp; Early Life</h2>
-      <div class="placeholder">
-        This chapter will tell the story of where our family comes from — the places, the people, and the world as it was when it all began.
-      </div>
+      <div class="chapter-label"
+        data-en="Chapter I"
+        data-vi="Chương I">Chapter I</div>
+      <h2
+        data-en="Origins &amp; Early Life"
+        data-vi="Nguồn Gốc &amp; Thời Thơ Ấu">Origins &amp; Early Life</h2>
+
+      <p data-en="Our family story begins in two distant corners of Vietnam. Ba — Nguyễn Văn Hiến — was born in 1945, the year of the Rooster, in the village of Tân Long, xã Nhơn An, in Bình Định province. The Nguyễn family name traces its roots to a distant ancestor, Nguyễn Phúc Khiêm, who came from the ancient capital of Huế and journeyed south to settle in Bình Định, carrying with him not only his family but a sense of duty to build something lasting."
+         data-vi="Câu chuyện gia đình chúng ta bắt đầu từ hai miền đất xa nhau của Việt Nam. Ba — Nguyễn Văn Hiến — sinh năm 1945, năm Ất Dậu, tại thôn Tân Long, xã Nhơn An, tỉnh Bình Định. Dòng họ Nguyễn của chúng ta bắt nguồn từ một vị tổ tiên xa xưa, ông Nguyễn Phúc Khiêm, người đã rời kinh đô Huế để vào Nam lập nghiệp ở Bình Định, mang theo không chỉ gia đình mà còn ý chí gây dựng một điều gì đó trường tồn.">Our family story begins in two distant corners of Vietnam. Ba — Nguyễn Văn Hiến — was born in 1945, the year of the Rooster, in the village of Tân Long, xã Nhơn An, in Bình Định province. The Nguyễn family name traces its roots to a distant ancestor, Nguyễn Phúc Khiêm, who came from the ancient capital of Huế and journeyed south to settle in Bình Định, carrying with him not only his family but a sense of duty to build something lasting.</p>
+
+      <p data-en="The family's ancestral home — the nhà từ đường — stands in that same village to this day. It was established by Ba's great-grandfather, Nguyễn Hiệp, and his wife, Trần Thị Lự, who acquired it through an unusual chain of events: a neighboring official, deep in gambling debts, sold his possessions piece by piece until the house itself changed hands. Great-grandfather Hiệp gave his own thatched home in exchange and kept the old wooden structure, passing it on to his descendants. Through wars and decades of neglect the house fell into disrepair. Ba restored it after returning from prison, and again in 2019, so that it stands firm once more — waiting for the grandchildren to come home."
+         data-vi="Ngôi nhà từ đường của gia đình vẫn còn đứng vững ở ngôi làng đó cho đến tận ngày nay. Nó được xây dựng bởi cố nội của ba là ông Nguyễn Hiệp và bà Trần Thị Lự. Tương truyền, một vị quan địa phương gần đó vì nợ cờ bạc mà phải bán đi đồ đạc rồi đến cả ngôi nhà. Ông cố Hiệp đổi lấy ngôi nhà gỗ đó bằng chính căn nhà lá của mình, rồi để lại cho con cháu làm cơ nghiệp. Trải qua chiến tranh và bao năm tháng, ngôi nhà xuống cấp dần. Ba đã sửa lại sau khi ra tù, rồi sửa thêm một lần nữa vào năm 2019, để ngôi nhà đứng vững trở lại — chờ đợi con cháu một ngày về thăm.">The family's ancestral home — the nhà từ đường — stands in that same village to this day. It was established by Ba's great-grandfather, Nguyễn Hiệp, and his wife, Trần Thị Lự, who acquired it through an unusual chain of events: a neighboring official, deep in gambling debts, sold his possessions piece by piece until the house itself changed hands. Great-grandfather Hiệp gave his own thatched home in exchange and kept the old wooden structure, passing it on to his descendants. Through wars and decades of neglect the house fell into disrepair. Ba restored it after returning from prison, and again in 2019, so that it stands firm once more — waiting for the grandchildren to come home.</p>
+
+      <p data-en="Mẹ — Ngô Thị Kim Anh — was born in 1952, in the village of Vạn Khánh, quận Vàng Ninh, in Khánh Hòa province, near the coastal city of Nha Trang. She grew up close to the sea, in a household shaped by the warmth of ông bà ngoại and the quiet rhythms of life in central Vietnam."
+         data-vi="Mẹ — Ngô Thị Kim Anh — sinh năm 1952, tại xã Vạn Khánh, quận Vàng Ninh, tỉnh Khánh Hòa, gần thành phố biển Nha Trang. Mẹ lớn lên bên bờ biển, trong một gia đình ấm áp với sự hiện diện của ông bà ngoại và nhịp sống bình lặng của vùng quê miền Trung Việt Nam.">Mẹ — Ngô Thị Kim Anh — was born in 1952, in the village of Vạn Khánh, quận Vàng Ninh, in Khánh Hòa province, near the coastal city of Nha Trang. She grew up close to the sea, in a household shaped by the warmth of ông bà ngoại and the quiet rhythms of life in central Vietnam.</p>
     </section>
 
     <section class="chapter" id="coming-of-age">
-      <div class="chapter-label">Chapter II</div>
-      <h2>Coming of Age</h2>
-      <div class="placeholder">
-        The years of growing up — school, friends, hardships, and the experiences that shaped who we became.
-      </div>
+      <div class="chapter-label"
+        data-en="Chapter II"
+        data-vi="Chương II">Chapter II</div>
+      <h2
+        data-en="Coming of Age"
+        data-vi="Tuổi Trưởng Thành">Coming of Age</h2>
+
+      <p data-en="Ba grew up during the long conflict between France and the Viet Minh, when schooling was scarce and childhood was shaped by uncertainty. It was not until 1954, after independence, that he first entered a classroom — at the age of nine. He studied hard, completed secondary school, and then faced the choice that defined so many young men of his generation: what path to take in a country that had known only war."
+         data-vi="Ba lớn lên trong thời kỳ kháng chiến Pháp — Việt Minh kéo dài, khi việc học hành vô cùng khó khăn và tuổi thơ gắn liền với bất trắc. Mãi đến năm 1954, sau khi đất nước giành được độc lập, ba mới lần đầu tiên bước vào lớp học — lúc đó ba đã chín tuổi. Ba học chăm chỉ, hoàn thành chương trình trung học, rồi đối mặt với lựa chọn mà bao nhiêu chàng trai thế hệ ấy đều phải đưa ra: sẽ đi theo con đường nào trong một đất nước chỉ biết đến chiến tranh.">Ba grew up during the long conflict between France and the Viet Minh, when schooling was scarce and childhood was shaped by uncertainty. It was not until 1954, after independence, that he first entered a classroom — at the age of nine. He studied hard, completed secondary school, and then faced the choice that defined so many young men of his generation: what path to take in a country that had known only war.</p>
+
+      <p data-en="He volunteered for the Air Force. The selection was demanding: from more than two hundred candidates in the Quy Nhơn region, only thirty-five were flown by C-47 transport to Saigon for final screening. Of those, only three from Bình Định were accepted. Ba was one of them. He joined in late 1966, assigned to Squadron 62 at the Nha Trang Air Base — the Central Air Force Training Center — where the planes and the wide sky above the coast became his world."
+         data-vi="Ba tình nguyện gia nhập không quân. Quá trình tuyển chọn rất khắt khe: trong hơn hai trăm thanh niên vùng Quy Nhơn, chỉ có ba mươi lăm người được chở bằng máy bay C-47 vào Sài Gòn để qua vòng tuyển chọn cuối. Trong số đó, chỉ có ba người từ Bình Định được chấp nhận. Ba là một trong số đó. Ba gia nhập không quân cuối năm 1966, được phân về phi đoàn 62 tại sân bay Nha Trang — Trung tâm Huấn luyện Không quân — nơi những chiếc máy bay và bầu trời rộng lớn ven biển trở thành thế giới của ba.">He volunteered for the Air Force. The selection was demanding: from more than two hundred candidates in the Quy Nhơn region, only thirty-five were flown by C-47 transport to Saigon for final screening. Of those, only three from Bình Định were accepted. Ba was one of them. He joined in late 1966, assigned to Squadron 62 at the Nha Trang Air Base — the Central Air Force Training Center — where the planes and the wide sky above the coast became his world.</p>
+
+      <p data-en="Mẹ, meanwhile, pursued her own path in Nha Trang. She studied at the city's girls' secondary school, living with her aunt — cô Sáu, the younger sister of Ba's father. After finishing school, she sat the entrance examination for a teachers' college and, to her own surprise, passed. She enrolled in a two-year training program to become a primary school teacher — a calling she would hold onto through the hardest years ahead."
+         data-vi="Trong khi đó, mẹ theo đuổi con đường học vấn của mình tại Nha Trang. Mẹ học trường nữ trung học, ở nhà cô Sáu — em ruột của ông nội ba. Sau khi tốt nghiệp, mẹ thi vào trường sư phạm và, ngoài sự mong đợi của chính mình, mẹ đã đậu. Mẹ theo học chương trình hai năm để trở thành giáo viên cấp một — một nghề mà mẹ sẽ bám víu qua những năm tháng gian khổ nhất phía trước.">Mẹ, meanwhile, pursued her own path in Nha Trang. She studied at the city's girls' secondary school, living with her aunt — cô Sáu, the younger sister of Ba's father. After finishing school, she sat the entrance examination for a teachers' college and, to her own surprise, passed. She enrolled in a two-year training program to become a primary school teacher — a calling she would hold onto through the hardest years ahead.</p>
     </section>
 
     <section class="chapter" id="family">
-      <div class="chapter-label">Chapter III</div>
-      <h2>Building a Family</h2>
-      <div class="placeholder">
-        How our family came together — meeting, marriage, and the early years of raising children.
-      </div>
+      <div class="chapter-label"
+        data-en="Chapter III"
+        data-vi="Chương III">Chapter III</div>
+      <h2
+        data-en="Building a Family"
+        data-vi="Xây Dựng Gia Đình">Building a Family</h2>
+
+      <p data-en="It was 1968 when their paths first crossed. Mẹ was seventeen, living at cô Sáu's house in Nha Trang. Ba, stationed nearby at the air base, had taken to visiting — drawn, like many of his fellow soldiers, by the lively household. But it was Mẹ he kept coming back for. He courted her steadily, as the Vietnamese say, tán — attentive, patient, devoted."
+         data-vi="Năm 1968, hai người lần đầu gặp nhau. Mẹ mười bảy tuổi, đang ở nhà cô Sáu tại Nha Trang. Ba, đóng quân gần đó ở căn cứ không quân, thường ghé thăm nhà — cũng như bao người lính khác, bị cuốn hút bởi ngôi nhà náo nhiệt. Nhưng mẹ mới là người ba cứ quay lại tìm. Ba kiên nhẫn tán tỉnh mẹ theo cách của người Việt mình — chiều chuộng, chu đáo, và thành tâm.">It was 1968 when their paths first crossed. Mẹ was seventeen, living at cô Sáu's house in Nha Trang. Ba, stationed nearby at the air base, had taken to visiting — drawn, like many of his fellow soldiers, by the lively household. But it was Mẹ he kept coming back for. He courted her steadily, as the Vietnamese say, tán — attentive, patient, devoted.</p>
+
+      <p data-en="Ba made the journey to Mẹ's home village of Tú Bông to meet ông ngoại and bà ngoại. Ông ngoại was immediately taken with him. In those days, in the countryside, a man who could fly a plane was held in rare esteem — the standards were so rigorous, the training so demanding, that to be accepted as a military pilot was considered something extraordinary. Ông ngoại's warm approval, and Mẹ's own growing affection, sealed what Ba had hoped for."
+         data-vi="Ba đã về tận làng Tú Bông để ra mắt ông bà ngoại. Ông ngoại lập tức có cảm tình ngay. Hồi đó, ở vùng quê, một người đàn ông biết lái máy bay được xem trọng vô cùng — tiêu chuẩn tuyển chọn khắt khe đến mức trở thành phi công quân sự gần như là điều phi thường. Sự chấp thuận nồng nhiệt của ông ngoại, cùng với tình cảm ngày càng lớn của mẹ, đã ấn định điều ba hằng mong ước.">Ba made the journey to Mẹ's home village of Tú Bông to meet ông ngoại and bà ngoại. Ông ngoại was immediately taken with him. In those days, in the countryside, a man who could fly a plane was held in rare esteem — the standards were so rigorous, the training so demanding, that to be accepted as a military pilot was considered something extraordinary. Ông ngoại's warm approval, and Mẹ's own growing affection, sealed what Ba had hoped for.</p>
+
+      <p data-en="They planned to marry in 1975. But in the final days of March, as North Vietnamese forces swept south toward Nha Trang, Ba and Mẹ joined the tide of evacuees fleeing by military aircraft to Saigon. They took shelter at the home of cô Chín — Ba's aunt, and the mother of the cousin the family now calls chú Triết in Canada. They waited through April. On the thirtieth of that month, the war ended. South Vietnam was no more."
+         data-vi="Hai người dự định làm đám cưới vào năm 1975. Nhưng cuối tháng Ba, khi quân đội miền Bắc tràn xuống phía Nam về hướng Nha Trang, ba và mẹ cùng dòng người di tản lên máy bay quân sự chạy vào Sài Gòn. Hai người tạm trú tại nhà cô Chín — cô ruột của ba, và là mẹ của người anh họ mà gia đình nay gọi là chú Triết ở Canada. Họ chờ đợi suốt tháng Tư. Và ngày 30 tháng Tư, chiến tranh kết thúc. Việt Nam Cộng Hòa không còn nữa.">They planned to marry in 1975. But in the final days of March, as North Vietnamese forces swept south toward Nha Trang, Ba and Mẹ joined the tide of evacuees fleeing by military aircraft to Saigon. They took shelter at the home of cô Chín — Ba's aunt, and the mother of the cousin the family now calls chú Triết in Canada. They waited through April. On the thirtieth of that month, the war ended. South Vietnam was no more.</p>
+
+      <p data-en="Ships were waiting in the harbor. Many chose to board them and leave. But Mẹ could not go. She thought of ông bà ngoại, alone in Tú Bông, and her feet would not move toward the water. Ba, who might have boarded a ship and gone to America that very day, chose instead to stay beside her. That choice would cost him six years of his life. As a former officer of the South Vietnamese Air Force, he was taken to a re-education camp. He had been told he would be gone for ten days. It became six years."
+         data-vi="Những con tàu đang chờ ở bến cảng. Nhiều người đã lên tàu ra đi. Nhưng mẹ không thể. Mẹ nghĩ đến ông bà ngoại, đang ở một mình ở Tú Bông, và chân mẹ không thể bước về phía bờ nước. Ba, người hoàn toàn có thể lên tàu và sang Mỹ ngay hôm đó, đã chọn ở lại bên mẹ. Quyết định ấy đã khiến ba mất đi sáu năm của cuộc đời mình. Là cựu sĩ quan của Không Quân Việt Nam Cộng Hòa, ba bị đưa đi trại cải tạo. Người ta nói với ba rằng sẽ đi khoảng mười ngày. Nhưng sáu năm đã trôi qua.">Ships were waiting in the harbor. Many chose to board them and leave. But Mẹ could not go. She thought of ông bà ngoại, alone in Tú Bông, and her feet would not move toward the water. Ba, who might have boarded a ship and gone to America that very day, chose instead to stay beside her. That choice would cost him six years of his life. As a former officer of the South Vietnamese Air Force, he was taken to a re-education camp. He had been told he would be gone for ten days. It became six years.</p>
+
+      <p data-en="Mẹ taught school through those years, living simply, making the long journey to visit Ba whenever she was able. When he was finally released in 1981, ông ngoại had already passed away the year before. They returned to a small earthen house on ông ngoại's land, and the family they had always meant to build — delayed first by war, then by prison — quietly began. Because there was never a ceremony, never a proper day set aside to mark the beginning of their life together, there are no wedding photographs. That is why."
+         data-vi="Mẹ dạy học trong suốt những năm đó, sống đơn giản, và tìm đường đi thăm ba mỗi khi có thể. Khi ba được thả về năm 1981, ông ngoại đã mất từ năm trước. Hai người trở về căn nhà đất nhỏ trên mảnh vườn của ông ngoại, và gia đình mà họ đã luôn mong muốn gây dựng — bị chiến tranh rồi lại tù đày trì hoãn — cuối cùng cũng lặng lẽ bắt đầu. Vì chưa bao giờ có lễ cưới, chưa bao giờ có một ngày riêng để đánh dấu sự khởi đầu cuộc đời chung, nên không có tấm hình cưới nào cả. Đó là lý do tại sao.">Mẹ taught school through those years, living simply, making the long journey to visit Ba whenever she was able. When he was finally released in 1981, ông ngoại had already passed away the year before. They returned to a small earthen house on ông ngoại's land, and the family they had always meant to build — delayed first by war, then by prison — quietly began. Because there was never a ceremony, never a proper day set aside to mark the beginning of their life together, there are no wedding photographs. That is why.</p>
     </section>
 
     <section class="chapter" id="new-world">
-      <div class="chapter-label">Chapter IV</div>
-      <h2>A New World</h2>
-      <div class="placeholder">
-        The journey to a new country, a new life — the challenges, sacrifices, and small victories along the way.
-      </div>
+      <div class="chapter-label"
+        data-en="Chapter IV"
+        data-vi="Chương IV">Chapter IV</div>
+      <h2
+        data-en="A New World"
+        data-vi="Một Thế Giới Mới">A New World</h2>
+
+      <p data-en="The years after Ba's release were quiet and constrained. As a former officer of the old government, Ba was barred from meaningful work. He farmed, found what he could, and waited. Meanwhile, Vietnamese communities already settled in the United States were petitioning the American government on behalf of those left behind — the former soldiers and political prisoners who had endured years of imprisonment. In time, a program was created to answer that call: the Humanitarian Operation, known as HO."
+         data-vi="Những năm sau khi ba được thả là những năm tháng yên lặng và chật hẹp. Là cựu sĩ quan của chế độ cũ, ba bị cấm làm những công việc có ý nghĩa. Ba làm ruộng, làm bất cứ việc gì có thể, và chờ đợi. Trong khi đó, các cộng đồng người Việt đã định cư ở Mỹ đang kiến nghị chính phủ Mỹ can thiệp cho những người ở lại — những người lính và tù nhân chính trị đã phải chịu đựng nhiều năm tù đày. Theo thời gian, một chương trình đã được lập ra để đáp lại lời kêu gọi đó: Chương trình Nhân Đạo, gọi là HO.">The years after Ba's release were quiet and constrained. As a former officer of the old government, Ba was barred from meaningful work. He farmed, found what he could, and waited. Meanwhile, Vietnamese communities already settled in the United States were petitioning the American government on behalf of those left behind — the former soldiers and political prisoners who had endured years of imprisonment. In time, a program was created to answer that call: the Humanitarian Operation, known as HO.</p>
+
+      <p data-en="Ba and Mẹ were accepted under HO 26. On June 6, 1994 — twenty-eight years before Ba recorded these words — the family arrived in the United States. The children were small: their daughter was six years old, and little Duyên was just a year and a half. They were sponsored by a generous family and settled in Washington State, drawn there in part because friends — con Ngợi's family — had already made a home in the area. The family's first American roots went down in the city of Tacoma. Three years later, a housing opportunity brought them north to Bellevue, where they have remained."
+         data-vi="Ba và mẹ được chấp nhận theo diện HO 26. Ngày 6 tháng 6 năm 1994 — hai mươi tám năm trước khi ba ghi lại những lời này — gia đình đặt chân đến Hoa Kỳ. Các con còn nhỏ: con gái lớn lúc đó sáu tuổi, và bé Duyên mới một tuổi rưỡi. Gia đình được bảo lãnh bởi một gia đình tốt bụng và định cư ở tiểu bang Washington, một phần vì gia đình con Ngợi — những người quen cũ — đã sống ở đó trước. Những cái rễ đầu tiên trên đất Mỹ được cắm xuống ở thành phố Tacoma. Ba năm sau, một cơ hội nhà ở đưa gia đình lên phía bắc đến Bellevue, nơi gia đình vẫn sinh sống cho đến hôm nay.">Ba and Mẹ were accepted under HO 26. On June 6, 1994 — twenty-eight years before Ba recorded these words — the family arrived in the United States. The children were small: their daughter was six years old, and little Duyên was just a year and a half. They were sponsored by a generous family and settled in Washington State, drawn there in part because friends — con Ngợi's family — had already made a home in the area. The family's first American roots went down in the city of Tacoma. Three years later, a housing opportunity brought them north to Bellevue, where they have remained.</p>
+
+      <p data-en="Ba found work in landscaping — tending lawns and gardens through Washington's seasons. He took pride in it. The work was honest, it connected him to the earth, and in time it gave him enough to give back. He sent money to Vietnam: to help the poor in his home village, to repair roads and bridges, to restore the temple, and above all to rebuild the ancestral home in Tân Long that his great-grandparents had built and that time had worn down."
+         data-vi="Ba tìm được chỗ đứng trong nghề làm vườn — chăm sóc cỏ cây qua các mùa của tiểu bang Washington. Ba tự hào về công việc đó. Nó thật thà, nó gắn ba với đất đai, và theo thời gian nó cho phép ba đền đáp lại. Ba gửi tiền về Việt Nam: để giúp đỡ người nghèo ở quê nhà, để sửa đường xá cầu cống, để trùng tu đình miếu, và trên hết là để xây lại ngôi nhà từ đường ở Tân Long mà ông cố đã gầy dựng và thời gian đã bào mòn.">Ba found work in landscaping — tending lawns and gardens through Washington's seasons. He took pride in it. The work was honest, it connected him to the earth, and in time it gave him enough to give back. He sent money to Vietnam: to help the poor in his home village, to repair roads and bridges, to restore the temple, and above all to rebuild the ancestral home in Tân Long that his great-grandparents had built and that time had worn down.</p>
+
+      <p data-en="He also opened the door for others. Cậu Nam Biên came in 2002 and stayed six months; Ba took him across California — north and south — and out to Las Vegas. Dượng Lương came in 2003, and Ba brought him east: to Washington D.C., to the United Nations, to the top of the Empire State Building. Ba sponsored a second visit in 2007, but that stay ended early when Dượng Lương's hand was caught in a lawnmower. American doctors treated him, and he healed, and he returned home to Vietnam — carrying with him a glimpse of the country Ba had worked so hard to make his own."
+         data-vi="Ba cũng mở cửa cho những người thân. Cậu Nam Biên sang năm 2002, ở sáu tháng, và ba dẫn cậu đi khắp California — từ Bắc xuống Nam — rồi ra tận Las Vegas. Dượng Lương sang năm 2003, và ba đưa dượng đi về phía đông: đến thủ đô Washington D.C., đến trụ sở Liên Hiệp Quốc, rồi lên đỉnh tòa nhà Empire State Building. Ba bảo lãnh cho dượng sang lần nữa vào năm 2007, nhưng lần đó phải kết thúc sớm khi tay dượng Lương bị thương do máy cắt cỏ. Bác sĩ Mỹ đã chữa trị, dượng bình phục, rồi trở về Việt Nam — mang theo những hình ảnh về đất nước mà ba đã bỏ bao công sức để gọi là quê hương mình.">He also opened the door for others. Cậu Nam Biên came in 2002 and stayed six months; Ba took him across California — north and south — and out to Las Vegas. Dượng Lương came in 2003, and Ba brought him east: to Washington D.C., to the United Nations, to the top of the Empire State Building. Ba sponsored a second visit in 2007, but that stay ended early when Dượng Lương's hand was caught in a lawnmower. American doctors treated him, and he healed, and he returned home to Vietnam — carrying with him a glimpse of the country Ba had worked so hard to make his own.</p>
     </section>
 
     <section class="chapter" id="legacy">
-      <div class="chapter-label">Chapter V</div>
-      <h2>Legacy &amp; Reflection</h2>
-      <div class="placeholder">
-        Looking back — what matters most, what we hope to pass on, and the story we want our children to carry forward.
-      </div>
+      <div class="chapter-label"
+        data-en="Chapter V"
+        data-vi="Chương V">Chapter V</div>
+      <h2
+        data-en="Legacy &amp; Reflection"
+        data-vi="Di Sản &amp; Suy Ngẫm">Legacy &amp; Reflection</h2>
+
+      <p data-en="On the Fourth of July, 2022, Ba sat before a camera to speak his story. The family had come to California for the holiday — a trip arranged by his son — and there, with the country celebrating around them, Ba began. He said that he wanted his descendants — a hundred years from now, two hundred years — to know where they came from."
+         data-vi="Vào ngày Quốc Khánh Mỹ, mùng 4 tháng 7 năm 2022, ba ngồi trước ống kính máy quay để kể lại câu chuyện cuộc đời mình. Gia đình đã đến California trong dịp lễ — chuyến đi do con trai sắp xếp — và ở đó, giữa một đất nước đang kỷ niệm, ba bắt đầu kể. Ba nói rằng ba muốn con cháu về sau — một trăm năm nữa, hai trăm năm nữa — biết được nguồn gốc của mình là từ đâu.">On the Fourth of July, 2022, Ba sat before a camera to speak his story. The family had come to California for the holiday — a trip arranged by his son — and there, with the country celebrating around them, Ba began. He said that he wanted his descendants — a hundred years from now, two hundred years — to know where they came from.</p>
+
+      <p data-en="He spoke of his full name — Nguyễn Văn Hiến — and of a lineage stretching back to the royal courts of Huế, to an ancestor who traveled south and planted the family name in the soil of Bình Định. He spoke of the ancestral home still standing in Thôn Tân Long, xã Nhơn An — restored and waiting, a place for grandchildren to one day return to and recognize as their own. He said he was the first of the Nguyễn family from Tân Long to live in America; his son, the second generation; and that the generations after that would continue, each one further from the beginning, but connected still."
+         data-vi="Ba kể về tên đầy đủ của mình — Nguyễn Văn Hiến — và về một dòng họ trải dài tới tận triều đình Huế, tới một vị tổ tiên đã vào Nam và gieo dòng họ Nguyễn lên mảnh đất Bình Định. Ba kể về ngôi nhà từ đường vẫn còn đứng vững ở Thôn Tân Long, xã Nhơn An — đã được tu sửa và đang chờ đợi, một nơi chốn để các cháu sau này có thể trở về và nhận ra là của mình. Ba nói ba là người đầu tiên của họ Nguyễn ở Tân Long sang Mỹ; con trai ba là thế hệ thứ hai; và những thế hệ tiếp theo sẽ tiếp tục, ngày càng xa hơn với điểm khởi đầu, nhưng vẫn còn kết nối.">He spoke of his full name — Nguyễn Văn Hiến — and of a lineage stretching back to the royal courts of Huế, to an ancestor who traveled south and planted the family name in the soil of Bình Định. He spoke of the ancestral home still standing in Thôn Tân Long, xã Nhơn An — restored and waiting, a place for grandchildren to one day return to and recognize as their own. He said he was the first of the Nguyễn family from Tân Long to live in America; his son, the second generation; and that the generations after that would continue, each one further from the beginning, but connected still.</p>
+
+      <p data-en="He had lived his life. He had served his country, survived prison, crossed an ocean, worked the land of a foreign country with his hands, and sent what he earned home. He had kept faith with the people he loved and the place he came from. Everything that needed doing had been done."
+         data-vi="Ba đã sống trọn cuộc đời của mình. Ba đã phục vụ đất nước, đã sống sót qua tù đày, đã vượt đại dương, đã làm lụng trên đất lạ bằng chính đôi tay mình, và đã gửi những gì kiếm được về quê nhà. Ba đã giữ trọn nghĩa với những người ba yêu thương và với nơi chốn ba đã sinh ra. Mọi việc cần làm đều đã xong.">He had lived his life. He had served his country, survived prison, crossed an ocean, worked the land of a foreign country with his hands, and sent what he earned home. He had kept faith with the people he loved and the place he came from. Everything that needed doing had been done.</p>
+
+      <p data-en="Mẹ, too, has her own account to leave for these pages. She was born in 1952, near the sea. She grew up, became a teacher, waited six years for a husband who came home a quieter man, raised her children through years of scarcity, and crossed the world to start again in a place she had never imagined. She has watched her children grow in this country and made it her own. Their story — our story — is written here so that it will not be lost. For the children, and for the children's children, and for whoever comes after. We were here. This is how we lived. This is where we came from."
+         data-vi="Mẹ cũng có câu chuyện của riêng mình để thêm vào những trang này. Mẹ sinh năm 1952, gần biển. Mẹ lớn lên, trở thành giáo viên, đợi sáu năm cho một người chồng trở về lặng lẽ hơn trước, nuôi con qua những năm thiếu thốn, và vượt đại dương để bắt đầu lại ở một nơi chưa bao giờ mẹ nghĩ đến. Mẹ đã nhìn các con trưởng thành trên đất nước này và đã biến nơi đây thành quê hương của mình. Câu chuyện của họ — câu chuyện của chúng ta — được ghi lại ở đây để không bị lãng quên. Cho các con, cho các cháu, và cho những ai đến sau. Chúng ta đã ở đây. Đây là cách chúng ta đã sống. Đây là nơi chúng ta đến từ.">Mẹ, too, has her own account to leave for these pages. She was born in 1952, near the sea. She grew up, became a teacher, waited six years for a husband who came home a quieter man, raised her children through years of scarcity, and crossed the world to start again in a place she had never imagined. She has watched her children grow in this country and made it her own. Their story — our story — is written here so that it will not be lost. For the children, and for the children's children, and for whoever comes after. We were here. This is how we lived. This is where we came from.</p>
     </section>
 
   </main>
 
   <footer>
-    A work in progress &mdash; written for the family, by the family.
+    <span
+      data-en="A work in progress &mdash; written for the family, by the family."
+      data-vi="Một tác phẩm đang được hoàn thiện &mdash; viết cho gia đình, bởi gia đình.">A work in progress &mdash; written for the family, by the family.</span>
   </footer>
+
+  <script>
+    var titles = { en: 'Our Family Story', vi: 'Câu Chuyện Gia Đình Chúng Ta' };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+      document.querySelectorAll('[data-en][data-vi]').forEach(function(el) {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+      document.title = titles[lang];
+      localStorage.setItem('lang', lang);
+    }
+
+    (function() {
+      var saved = localStorage.getItem('lang');
+      if (saved === 'vi') setLang('vi');
+    })();
+  </script>
 
 </body>
 </html>
