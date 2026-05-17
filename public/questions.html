@@ -43,7 +43,6 @@
       background: none;
       border: 1px solid var(--rule);
       border-radius: 4px;
-      overflow: hidden;
       font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', 'Times New Roman', Georgia, serif;
       font-size: 0.75rem;
       letter-spacing: 0.1em;
@@ -60,20 +59,6 @@
     }
 
     .divider { width: 1px; height: 16px; background: var(--rule); }
-
-    .back-link {
-      display: inline-block;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 1px;
-      margin-bottom: 28px;
-    }
-
-    .back-link:hover { color: var(--accent); border-color: var(--accent); }
 
     .subtitle {
       font-size: 0.8rem;
@@ -97,15 +82,54 @@
       color: var(--muted);
     }
 
-    .intro-note {
+    .depth-guide {
       max-width: 680px;
       margin: 40px auto 0;
-      padding: 0 20px;
-      font-size: 0.95rem;
+      padding: 24px 28px;
+      background: white;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      text-align: left;
+    }
+
+    .depth-guide-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .depth-row {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .depth-row:last-child { margin-bottom: 0; }
+
+    .depth-num {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: bold;
+      min-width: 1.4em;
+      flex-shrink: 0;
+    }
+
+    .depth-name {
+      font-weight: bold;
+      color: var(--ink);
+      min-width: 7em;
+      flex-shrink: 0;
+    }
+
+    .depth-yield {
       color: var(--muted);
       font-style: italic;
-      text-align: center;
-      line-height: 1.7;
+      font-size: 0.85rem;
     }
 
     main {
@@ -114,17 +138,17 @@
       padding: 60px 20px 80px;
     }
 
-    .person-section {
-      margin-bottom: 70px;
+    .level {
+      margin-bottom: 80px;
     }
 
-    .person-header {
+    .level-header {
       border-top: 2px solid var(--accent);
       padding-top: 30px;
       margin-bottom: 40px;
     }
 
-    .person-label {
+    .level-label {
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -132,40 +156,65 @@
       margin-bottom: 6px;
     }
 
-    .person-header h2 {
+    .level-header h2 {
       font-size: 1.9rem;
       font-weight: normal;
       color: var(--ink);
       margin-bottom: 6px;
     }
 
-    .person-header .person-sub {
+    .level-yield {
       font-size: 0.9rem;
       color: var(--muted);
       font-style: italic;
     }
 
-    .topic {
-      margin-bottom: 40px;
+    .person-block {
+      margin-bottom: 50px;
     }
 
-    .topic h3 {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding-bottom: 8px;
+    .person-block-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      padding-bottom: 10px;
       border-bottom: 1px solid var(--rule);
-      margin-bottom: 20px;
     }
 
-    .topic ol {
+    .person-badge {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .person-badge.me { background: #4a6741; }
+    .person-badge.both { background: #4a5568; }
+
+    .person-block-header h3 {
+      font-size: 1.1rem;
+      font-weight: normal;
+      color: var(--ink);
+    }
+
+    .person-life {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    ol.q-list {
       padding-left: 0;
       list-style: none;
       counter-reset: q;
     }
 
-    .topic ol li {
+    ol.q-list li {
       counter-increment: q;
       position: relative;
       padding-left: 2.2em;
@@ -173,7 +222,7 @@
       font-size: 1rem;
     }
 
-    .topic ol li::before {
+    ol.q-list li::before {
       content: counter(q) ".";
       position: absolute;
       left: 0;
@@ -182,32 +231,12 @@
       top: 0.15em;
     }
 
-    .topic ol li .vi {
+    ol.q-list li .vi {
       display: block;
       font-style: italic;
       color: var(--muted);
       font-size: 0.9rem;
       margin-top: 3px;
-    }
-
-    .joint-section {
-      border-top: 1px solid var(--rule);
-      padding-top: 50px;
-      margin-top: 20px;
-    }
-
-    .joint-section h2 {
-      font-size: 1.4rem;
-      font-weight: normal;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
-
-    .joint-section .joint-sub {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 36px;
     }
 
     footer {
@@ -219,17 +248,14 @@
       letter-spacing: 0.05em;
     }
 
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .vi-only { display: none; }
+    footer a { color: var(--accent); text-decoration: none; }
 
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
-      .person-header h2 { font-size: 1.5rem; }
+      .level-header h2 { font-size: 1.5rem; }
       .lang-toggle { top: 14px; right: 14px; }
+      .depth-name { min-width: 5em; }
+      .person-block-header { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -250,490 +276,594 @@
     <div class="byline"
       data-en="Questions to guide future recordings with Ba and Mẹ"
       data-vi="Câu hỏi để hướng dẫn những buổi ghi hình tiếp theo với ba và mẹ">Questions to guide future recordings with Ba and Mẹ</div>
-  </header>
 
-  <p class="intro-note"
-    data-en="These questions are organized by topic, starting where the current memoir leaves gaps. There is no need to follow the order strictly — let the conversation go where it goes, and return to this list when it slows."
-    data-vi="Các câu hỏi được sắp xếp theo chủ đề, bắt đầu từ những chỗ còn thiếu trong hồi ký hiện tại. Không cần theo thứ tự — cứ để câu chuyện đi theo chiều tự nhiên, và quay lại danh sách này khi câu chuyện chậm lại.">These questions are organized by topic, starting where the current memoir leaves gaps. There is no need to follow the order strictly — let the conversation go where it goes, and return to this list when it slows.</p>
+    <div class="depth-guide">
+      <div class="depth-guide-title"
+        data-en="How to use these questions — five levels of depth"
+        data-vi="Cách sử dụng các câu hỏi — năm mức độ sâu">How to use these questions — five levels of depth</div>
+      <div class="depth-row">
+        <span class="depth-num">1</span>
+        <span class="depth-name" data-en="The Spine" data-vi="Bộ Khung">The Spine</span>
+        <span class="depth-yield" data-en="One question per life chapter — a complete short memoir at any stopping point" data-vi="Một câu mỗi chương đời — đủ viết một cuốn hồi ký ngắn gọn bất cứ lúc nào">One question per life chapter — a complete short memoir at any stopping point</span>
+      </div>
+      <div class="depth-row">
+        <span class="depth-num">2</span>
+        <span class="depth-name" data-en="The Flesh" data-vi="Thịt Da">The Flesh</span>
+        <span class="depth-yield" data-en="Key facts, dates, and named people for every chapter" data-vi="Những sự kiện, ngày tháng, và tên người quan trọng trong mỗi chương">Key facts, dates, and named people for every chapter</span>
+      </div>
+      <div class="depth-row">
+        <span class="depth-num">3</span>
+        <span class="depth-name" data-en="The Texture" data-vi="Chất Liệu">The Texture</span>
+        <span class="depth-yield" data-en="Specific memories, turning-point moments, the stories behind the facts" data-vi="Những ký ức cụ thể, khoảnh khắc bước ngoặt, câu chuyện sau mỗi sự việc">Specific memories, turning-point moments, the stories behind the facts</span>
+      </div>
+      <div class="depth-row">
+        <span class="depth-num">4</span>
+        <span class="depth-name" data-en="The Grain" data-vi="Chi Tiết">The Grain</span>
+        <span class="depth-yield" data-en="Sensory details, precise scenes, emotions in the moment" data-vi="Chi tiết cảm quan, cảnh vật cụ thể, cảm xúc trong từng khoảnh khắc">Sensory details, precise scenes, emotions in the moment</span>
+      </div>
+      <div class="depth-row">
+        <span class="depth-num">5</span>
+        <span class="depth-name" data-en="The Archive" data-vi="Kho Lưu Trữ">The Archive</span>
+        <span class="depth-yield" data-en="Documents, photographs, family trees, and stories never told" data-vi="Tài liệu, hình ảnh, phả hệ, và những câu chuyện chưa bao giờ kể">Documents, photographs, family trees, and stories never told</span>
+      </div>
+    </div>
+  </header>
 
   <main>
 
-    <!-- ═══════════════════════════════ BA ═══════════════════════════════ -->
-    <div class="person-section">
-      <div class="person-header">
-        <div class="person-label"
-          data-en="For Ba"
-          data-vi="Dành cho Ba">For Ba</div>
-        <h2>Nguyễn Văn Hiến</h2>
-        <div class="person-sub"
-          data-en="Born 1945, Tân Long, Bình Định"
-          data-vi="Sinh 1945, Tân Long, Bình Định">Born 1945, Tân Long, Bình Định</div>
+    <!-- ═══════════════════════════════ LEVEL 1 ═══════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-label" data-en="Level 1" data-vi="Mức Độ 1">Level 1</div>
+        <h2 data-en="The Spine" data-vi="Bộ Khung">The Spine</h2>
+        <div class="level-yield"
+          data-en="One essential question for each life chapter. Stop here and you have enough for a complete short memoir."
+          data-vi="Một câu hỏi cốt lõi cho mỗi chương đời. Dừng ở đây và bạn đã có đủ tư liệu cho một cuốn hồi ký ngắn gọn nhưng trọn vẹn.">One essential question for each life chapter. Stop here and you have enough for a complete short memoir.</div>
       </div>
 
-      <div class="topic">
-        <h3 data-en="Childhood &amp; Family" data-vi="Tuổi Thơ &amp; Gia Đình">Childhood &amp; Family</h3>
-        <ol>
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge">Ba</span>
+          <h3>Nguyễn Văn Hiến</h3>
+          <span class="person-life" data-en="Born 1945, Tân Long, Bình Định" data-vi="Sinh 1945, Tân Long, Bình Định">Born 1945, Tân Long, Bình Định</span>
+        </div>
+        <ol class="q-list">
           <li>
-            Tell me about growing up in Tân Long. What did the village look like? What did children do for fun?
-            <span class="vi">Kể cho con nghe về tuổi thơ ở Tân Long. Làng trông như thế nào? Trẻ con chơi gì?</span>
+            What was it like growing up in Tân Long — your family, your village, and your childhood years?
+            <span class="vi">Tuổi thơ ở Tân Long như thế nào — gia đình ba, ngôi làng, và những năm tháng nhỏ?</span>
           </li>
           <li>
-            Tell me about your parents — ông nội Nguyễn Hội and bà nội. What were they like? What do you remember most about them?
-            <span class="vi">Kể về ba mẹ của ba — ông Nguyễn Hội và bà nội. Họ như thế nào? Ba nhớ nhất điều gì về họ?</span>
+            What made you join the Air Force, and what was your life like as a serviceman in Nha Trang?
+            <span class="vi">Điều gì khiến ba gia nhập không quân, và cuộc sống của ba như thế nào khi phục vụ ở Nha Trang?</span>
           </li>
           <li>
-            Did you have brothers and sisters? What were they like, and what happened to each of them?
-            <span class="vi">Ba có anh chị em không? Họ như thế nào, và cuộc đời mỗi người đi về đâu?</span>
+            Where were you on April 30, 1975, what happened that day, and what did you decide?
+            <span class="vi">Ba ở đâu vào ngày 30 tháng 4 năm 1975, hôm đó chủyện gì xảy ra, và ba đã quyết định gì?</span>
           </li>
           <li>
-            What do you remember about life during the French-Viet Minh war years, before you started school?
-            <span class="vi">Ba còn nhớ gì về những năm chiến tranh Pháp-Việt Minh, trước khi ba đi học?</span>
+            What were the years in the re-education camp like, and what kept you going?
+            <span class="vi">Những năm trong trại cải tạo như thế nào, và điều gì giúp ba vững vàng?</span>
           </li>
           <li>
-            What was school like when you finally started at age nine? Who were your teachers? What were your favorite subjects?
-            <span class="vi">Trường học như thế nào khi ba bắt đầu đi học lúc chín tuổi? Ai là thầy cô của ba? Ba thích môn gì nhất?</span>
+            How did your family come to America, and what were those first years like?
+            <span class="vi">Gia đình ba đến Mỹ như thế nào, và những năm đầu tiên đó ra sao?</span>
           </li>
           <li>
-            What did you imagine your life would look like when you were a teenager?
-            <span class="vi">Hồi còn trẻ, ba tưởng tượng cuộc đời mình sẽ như thế nào?</span>
+            Looking back at your whole life, what are you most proud of, and what do you hope your grandchildren will remember about you?
+            <span class="vi">Nhìn lại cả cuộc đời, ba tự hào nhất điều gì, và ba muốn các cháu nhớ gì về ba?</span>
           </li>
         </ol>
       </div>
 
-      <div class="topic">
-        <h3 data-en="The Air Force" data-vi="Không Quân">The Air Force</h3>
-        <ol>
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge me">Mẹ</span>
+          <h3>Ngô Thị Kim Anh</h3>
+          <span class="person-life" data-en="Born 1952, Vạn Khánh, Khánh Hòa" data-vi="Sinh 1952, Vạn Khánh, Khánh Hòa">Born 1952, Vạn Khánh, Khánh Hòa</span>
+        </div>
+        <ol class="q-list">
           <li>
-            What made you choose the Air Force specifically? Was it excitement, patriotism, practical reasons — or all of these?
-            <span class="vi">Điều gì khiến ba chọn không quân? Vì hào hứng, vì lòng yêu nước, vì thực tế — hay tất cả?</span>
+            What was life like growing up in Vạn Khánh and Tú Bông, and what kind of family did you come from?
+            <span class="vi">Tuổi thơ ở Vạn Khánh và Tú Bông như thế nào, và mẹ lớn lên trong gia đình như thế nào?</span>
           </li>
           <li>
-            Walk me through the selection process in detail — from registering in Quy Nhơn to arriving in Saigon for the medical exam. How did you feel at each step?
-            <span class="vi">Kể chi tiết về quá trình tuyển chọn — từ lúc đăng ký ở Quy Nhơn đến khi vào Sài Gòn kiểm tra y tế. Ba cảm thấy thế nào ở mỗi bước?</span>
+            How did you end up studying in Nha Trang, and what did your life as a student and then a teacher look like?
+            <span class="vi">Mẹ đến Nha Trang học như thế nào, và cuộc sống của mẹ khi còn là học sinh và sau đó là giáo viên ra sao?</span>
           </li>
           <li>
-            What was basic training like? Where did you train, for how long, and what was the hardest part?
-            <span class="vi">Huấn luyện căn bản như thế nào? Ba huấn luyện ở đâu, bao lâu, và phần nào khó nhất?</span>
+            How did you meet Ba, and what happened when the fall of Saigon interrupted your wedding plans?
+            <span class="vi">Mẹ gặp ba như thế nào, và chủyện gì xảy ra khi sự kiện 30 tháng 4 phá tan kế hoạch cưới của hai người?</span>
           </li>
           <li>
-            What exactly was your role and specialty in Squadron 62? What kind of aircraft did you work with?
-            <span class="vi">Chức vụ và chuyên môn của ba trong phi đoàn 62 là gì? Ba làm việc với loại máy bay nào?</span>
+            What were the six years like while Ba was in the re-education camp — how did you survive and keep going?
+            <span class="vi">Sáu năm khi ba trong trại cải tạo như thế nào — mẹ đã sống và vượt qua bằng cách nào?</span>
           </li>
           <li>
-            Describe a typical day at the Nha Trang Air Base — from waking up to lights out.
-            <span class="vi">Kể về một ngày bình thường ở căn cứ không quân Nha Trang — từ lúc thức dậy đến lúc đi ngủ.</span>
+            What was it like leaving Vietnam and starting a new life in America?
+            <span class="vi">Cảm giác thế nào khi rời Việt Nam và bắt đầu cuộc sống mới ở Mỹ?</span>
           </li>
           <li>
-            What were your most intense or unforgettable moments during nearly ten years of service?
-            <span class="vi">Khoảnh khắc căng thẳng nhất hoặc không thể quên trong gần mười năm phục vụ là gì?</span>
-          </li>
-          <li>
-            When did you first sense that South Vietnam might fall? What did you think would happen?
-            <span class="vi">Ba bắt đầu linh cảm miền Nam có thể thua từ khi nào? Ba nghĩ chuyện gì sẽ xảy ra?</span>
-          </li>
-        </ol>
-      </div>
-
-      <div class="topic">
-        <h3 data-en="April 30 &amp; Re-Education" data-vi="30 Tháng 4 &amp; Cải Tạo">April 30 &amp; Re-Education</h3>
-        <ol>
-          <li>
-            Walk me through April 30, 1975 — hour by hour if you can. Where were you, what did you see, what did you hear?
-            <span class="vi">Kể lại ngày 30 tháng 4 năm 1975 — từng giờ nếu có thể. Ba ở đâu, thấy gì, nghe gì?</span>
-          </li>
-          <li>
-            When you decided to stay with Mẹ instead of leaving on a ship, what was going through your mind? Did you hesitate?
-            <span class="vi">Khi ba quyết định ở lại với mẹ thay vì lên tàu, ba nghĩ gì? Ba có do dự không?</span>
-          </li>
-          <li>
-            Describe the moment you reported for re-education. What were you told? What did you bring? What did the camp look like when you arrived?
-            <span class="vi">Kể về lúc ba đi trình diện cải tạo. Người ta nói gì với ba? Ba mang theo gì? Trại trông như thế nào khi ba đến?</span>
-          </li>
-          <li>
-            Describe a typical day in the re-education camp — what did you eat, where did you sleep, what kind of work did they make you do?
-            <span class="vi">Kể về một ngày bình thường trong trại cải tạo — ba ăn gì, ngủ ở đâu, phải làm những công việc gì?</span>
-          </li>
-          <li>
-            How did you keep your spirit alive during six years? What did you think about? What kept you going?
-            <span class="vi">Ba giữ tinh thần sống như thế nào trong sáu năm? Ba nghĩ đến điều gì? Điều gì giúp ba vững vàng?</span>
-          </li>
-          <li>
-            Tell me about Mẹ's visits (đi thăm nuôi). When did she first come? What did she bring? What were those visits like for you?
-            <span class="vi">Kể về những lần mẹ vào thăm nuôi. Mẹ đến lần đầu khi nào? Mẹ mang gì vào? Những lần đó cảm giác thế nào với ba?</span>
-          </li>
-          <li>
-            Were there other prisoners you became close to? What happened to them?
-            <span class="vi">Ba có kết thân với tù nhân nào khác không? Họ về sau như thế nào?</span>
-          </li>
-          <li>
-            Describe the day you were released. What happened, what did they say, and what was the first thing you did when you walked out?
-            <span class="vi">Kể về ngày ba được thả. Chuyện gì xảy ra, họ nói gì, và việc đầu tiên ba làm khi bước ra ngoài là gì?</span>
+            Looking back, what do you most want your grandchildren to know about your life and what your generation went through?
+            <span class="vi">Nhìn lại, mẹ muốn các cháu biết gì nhất về cuộc đời mẹ và những gì thế hệ của mẹ đã trải qua?</span>
           </li>
         </ol>
       </div>
 
-      <div class="topic">
-        <h3 data-en="The Long Wait (1981–1994)" data-vi="Những Năm Chờ Đợi (1981–1994)">The Long Wait (1981–1994)</h3>
-        <ol>
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge both" data-en="Both Together" data-vi="Cả Hai">Both Together</span>
+        </div>
+        <ol class="q-list">
           <li>
-            What was it like returning to Tú Bông after six years and finding that ông ngoại had died?
-            <span class="vi">Cảm giác thế nào khi trở về Tú Bông sau sáu năm và biết ông ngoại đã mất?</span>
+            How did you build your family life together in America — what did home feel like in those early years?
+            <span class="vi">Hai người đã gây dựng cuộc sống gia đình ở Mỹ như thế nào — ngôi nhà của hai người cảm thấy thế nào trong những năm đầu?</span>
           </li>
           <li>
-            When and how did you and Mẹ finally get married? Was there any kind of ceremony or celebration?
-            <span class="vi">Ba mẹ chính thức cưới nhau khi nào và như thế nào? Có tổ chức lễ lạt hay ăn mừng gì không?</span>
-          </li>
-          <li>
-            What kind of work did you do between 1981 and 1994 to support the family?
-            <span class="vi">Ba làm công việc gì trong giai đoạn 1981 đến 1994 để nuôi gia đình?</span>
-          </li>
-          <li>
-            When Ba Tây was born in 1988, what was that like? What did you feel when you first held him?
-            <span class="vi">Khi Ba Tây sinh năm 1988, cảm giác thế nào? Ba cảm thấy gì khi lần đầu bế con?</span>
-          </li>
-          <li>
-            How did you first hear about the HO program? What was the application and waiting process like?
-            <span class="vi">Ba biết về chương trình HO như thế nào? Quá trình đăng ký và chờ đợi như thế nào?</span>
-          </li>
-          <li>
-            Were you scared to leave Vietnam? Was there anything you didn't want to leave behind?
-            <span class="vi">Ba có sợ khi phải rời Việt Nam không? Có điều gì ba không muốn bỏ lại không?</span>
-          </li>
-        </ol>
-      </div>
-
-      <div class="topic">
-        <h3 data-en="Coming to America" data-vi="Đến Nước Mỹ">Coming to America</h3>
-        <ol>
-          <li>
-            Describe the journey from Vietnam to the United States — what were the transit stops, what was the flight like, what did the kids do?
-            <span class="vi">Kể về chuyến đi từ Việt Nam sang Mỹ — dừng chân ở đâu, chuyến bay như thế nào, các con làm gì?</span>
-          </li>
-          <li>
-            What was the moment of landing in America like? What did you see first? What did you think?
-            <span class="vi">Khoảnh khắc đáp xuống nước Mỹ như thế nào? Điều đầu tiên ba thấy là gì? Ba nghĩ gì?</span>
-          </li>
-          <li>
-            Who exactly was the Ev Châu family — how did you know them, and what did they do for you in those first weeks?
-            <span class="vi">Gia đình Ev Châu là ai — ba quen họ như thế nào, và họ đã làm gì cho gia đình mình trong những tuần đầu?</span>
-          </li>
-          <li>
-            What was the biggest culture shock in those first weeks and months?
-            <span class="vi">Cú sốc văn hóa lớn nhất trong những tuần và tháng đầu là gì?</span>
-          </li>
-          <li>
-            What was your first experience with an American winter like?
-            <span class="vi">Lần đầu tiên trải qua mùa đông ở Mỹ như thế nào?</span>
-          </li>
-          <li>
-            How did you find your first landscaping job? Who hired you, and what was the first day like?
-            <span class="vi">Ba tìm được việc làm vườn đầu tiên như thế nào? Ai thuê ba, và ngày đầu tiên đi làm như thế nào?</span>
-          </li>
-          <li>
-            Did you work with other Vietnamese people in landscaping, or mostly others? How did you communicate with employers and coworkers?
-            <span class="vi">Ba làm việc chủ yếu với người Việt hay người khác? Ba giao tiếp với chủ và đồng nghiệp như thế nào?</span>
-          </li>
-        </ol>
-      </div>
-
-      <div class="topic">
-        <h3 data-en="Life Built &amp; Reflection" data-vi="Cuộc Sống Đã Gây Dựng &amp; Suy Ngẫm">Life Built &amp; Reflection</h3>
-        <ol>
-          <li>
-            What was a typical workday in landscaping? What did you enjoy about it, and what was hard?
-            <span class="vi">Một ngày làm vườn điển hình như thế nào? Ba thích điều gì và điều gì khó khăn?</span>
-          </li>
-          <li>
-            When did you first feel like you truly belonged in America?
-            <span class="vi">Khi nào ba bắt đầu cảm thấy mình thực sự thuộc về nước Mỹ?</span>
-          </li>
-          <li>
-            Tell me about going back to Vietnam for the first time to visit. When was it, and what was it like?
-            <span class="vi">Kể về lần đầu tiên ba trở về Việt Nam thăm. Đó là khi nào, và cảm giác thế nào?</span>
-          </li>
-          <li>
-            Tell me about the 2019 nhà từ đường restoration in detail — what did the house look like before, what did you have done, and was there any ceremony when it was finished?
-            <span class="vi">Kể về việc trùng tu nhà từ đường năm 2019 — ngôi nhà trông như thế nào trước đó, ba sửa những gì, và có tổ chức lễ lạt gì khi xong không?</span>
-          </li>
-          <li>
-            What is the proudest moment of your life?
-            <span class="vi">Khoảnh khắc tự hào nhất trong cuộc đời ba là gì?</span>
-          </li>
-          <li>
-            Is there anything you wish you had done differently?
-            <span class="vi">Có điều gì ba ước gì mình đã làm khác đi không?</span>
-          </li>
-          <li>
-            What do you want your grandchildren and great-grandchildren — people you may never meet — to know about who you were?
-            <span class="vi">Ba muốn các cháu và chắt — những người ba có thể không bao giờ gặp — biết điều gì về con người của ba?</span>
-          </li>
-          <li>
-            What does it mean to you to be Vietnamese, living in America?
-            <span class="vi">Với ba, là người Việt sống ở Mỹ có ý nghĩa gì?</span>
+            What do you hope this family will remember and carry forward for the next hundred years?
+            <span class="vi">Ba mẹ hy vọng gia đình mình sẽ nhớ và gìn giữ điều gì trong một trăm năm tới?</span>
           </li>
         </ol>
       </div>
     </div>
 
-    <!-- ═══════════════════════════════ MẸ ═══════════════════════════════ -->
-    <div class="person-section">
-      <div class="person-header">
-        <div class="person-label"
-          data-en="For Mẹ"
-          data-vi="Dành cho Mẹ">For Mẹ</div>
-        <h2>Ngô Thị Kim Anh</h2>
-        <div class="person-sub"
-          data-en="Born 1952, Vạn Khánh, Khánh Hòa"
-          data-vi="Sinh 1952, Vạn Khánh, Khánh Hòa">Born 1952, Vạn Khánh, Khánh Hòa</div>
+    <!-- ═══════════════════════════════ LEVEL 2 ═══════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-label" data-en="Level 2" data-vi="Mức Độ 2">Level 2</div>
+        <h2 data-en="The Flesh" data-vi="Thịt Da">The Flesh</h2>
+        <div class="level-yield"
+          data-en="Key facts, dates, and named people for every chapter. A memoir written through Level 2 has the full outline of the story."
+          data-vi="Những sự kiện, ngày tháng, và tên người quan trọng trong mỗi chương. Một cuốn hồi ký viết đến Mức 2 đã có đầy đủ bộ khung câu chuyện.">Key facts, dates, and named people for every chapter. A memoir written through Level 2 has the full outline of the story.</div>
       </div>
 
-      <div class="topic">
-        <h3 data-en="Growing Up" data-vi="Tuổi Thơ">Growing Up</h3>
-        <ol>
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge">Ba</span>
+          <h3>Nguyễn Văn Hiến</h3>
+        </div>
+        <ol class="q-list">
           <li>
-            Describe what Vạn Khánh and Tú Bông were like when you were growing up — the village, the sea, the seasons, the sounds.
-            <span class="vi">Kể về Vạn Khánh và Tú Bông hồi mẹ còn nhỏ — ngôi làng, biển cả, các mùa, âm thanh.</span>
+            Who were your parents — ông nội Nguyễn Hội and bà nội? Did you have brothers and sisters, and what happened to each of them?
+            <span class="vi">Cha mẹ của ba — ông Nội Nguyễn Hội và bà Nội — là người như thế nào? Ba có anh chị em không, và mỗi người về sau ra sao?</span>
           </li>
           <li>
-            Tell me about ông ngoại and bà ngoại. What were they like? What do you remember most about each of them?
-            <span class="vi">Kể về ông ngoại và bà ngoại. Họ như thế nào? Mẹ nhớ nhất điều gì về từng người?</span>
+            Describe the process of joining the Air Force — the exams in Quy Nhơn and Saigon, where you trained, and how long training lasted.
+            <span class="vi">Kể về quá trình gia nhập không quân — các kỳ thi ở Quy Nhơn và Sài Gòn, nơi ba huấn luyện, và huấn luyện kéo dài bao lâu.</span>
           </li>
           <li>
-            Tell me about your siblings — besides Cậu Năm, did you have other brothers or sisters? What were they like?
-            <span class="vi">Kể về anh chị em của mẹ — ngoài cậu Năm, mẹ có anh chị em nào khác không? Họ như thế nào?</span>
+            What was your role and specialty in Squadron 62 at Nha Trang? What kind of aircraft did you work with?
+            <span class="vi">Chức vụ và chuyên môn của ba trong phi đoàn 62 ở Nha Trang là gì? Ba làm việc với loại máy bay nào?</span>
           </li>
           <li>
-            What were your happiest memories as a child?
-            <span class="vi">Ký ức hạnh phúc nhất của mẹ thời thơ ấu là gì?</span>
+            When you chose to stay instead of boarding a ship on April 30 — what were your exact reasons, and who else was involved in that decision?
+            <span class="vi">Khi ba quyết định ở lại thay vì lên tàu ngày 30 tháng 4 — lý do chính xác là gì, và ai còn có mặt trong quyết định đó?</span>
           </li>
           <li>
-            What did you dream of becoming when you were young?
-            <span class="vi">Hồi còn trẻ mẹ mơ ước trở thành người như thế nào?</span>
+            How long were you in the re-education camp, where was it located, and what happened to your rank and property while you were away?
+            <span class="vi">Ba ở trong trại cải tạo bao lâu, trại ở đâu, và chủyện gì xảy ra với cấp bậc và tài sản của ba trong thời gian đó?</span>
+          </li>
+          <li>
+            How did you hear about the HO program, and what was the application and waiting process like?
+            <span class="vi">Ba biết về chương trình HO như thế nào, và quá trình đăng ký và chờ đợi như thế nào?</span>
+          </li>
+          <li>
+            Who were the Ev Châu family, how did you know them, and what did they do to help when you first arrived?
+            <span class="vi">Gia đình Ev Châu là ai, ba quen họ thế nào, và họ đã làm gì để giúp gia đình ba khi mới đến?</span>
+          </li>
+          <li>
+            How did you find your first landscaping job, and for how many years did you do that work before retiring?
+            <span class="vi">Ba tìm được công việc làm vườn đầu tiên như thế nào, và ba làm công việc đó bao nhiêu năm trước khi nghỉ hưu?</span>
+          </li>
+          <li>
+            Tell me about the nhà từ đường restoration in 2019 — what was the original house like, what did you have built, and was there any ceremony?
+            <span class="vi">Kể về việc trùng tu nhà từ đường năm 2019 — ngôi nhà gốc như thế nào, ba cho xây sửa những gì, và có tổ chức lễ lạt gì không?</span>
           </li>
         </ol>
       </div>
 
-      <div class="topic">
-        <h3 data-en="Nha Trang &amp; Teachers' College" data-vi="Nha Trang &amp; Trường Sư Phạm">Nha Trang &amp; Teachers' College</h3>
-        <ol>
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge me">Mẹ</span>
+          <h3>Ngô Thị Kim Anh</h3>
+        </div>
+        <ol class="q-list">
           <li>
-            How did it come about that you went to Nha Trang for school? Who arranged for you to stay at cô Sáu's house?
-            <span class="vi">Sao mẹ lại đến Nha Trang học? Ai sắp xếp cho mẹ ở nhà cô Sáu?</span>
+            Tell me about ông ngoại and bà ngoại. How many siblings did you have, and what happened to each of them?
+            <span class="vi">Kể về ông ngoại và bà ngoại. Mẹ có bao nhiêu anh chị em, và mỗi người về sau ra sao?</span>
           </li>
           <li>
-            Tell me more about life at the nhà đèn — who were the other girls, what did you all do together, what was the atmosphere like?
-            <span class="vi">Kể thêm về cuộc sống ở nhà đèn — những cô gái khác là ai, các bạn làm gì cùng nhau, không khí ở đó như thế nào?</span>
+            Who was cô Sáu and how did it come about that you stayed at her house (nhà đèn) in Nha Trang?
+            <span class="vi">Cô Sáu là ai và làm thế nào mẹ lại ở nhà cô Sáu (nhà đèn) ở Nha Trang?</span>
           </li>
           <li>
-            What was teachers' college like? Who were the teachers you remember? What subjects did you study?
-            <span class="vi">Trường sư phạm như thế nào? Thầy cô nào mẹ còn nhớ? Mẹ học những môn gì?</span>
+            What did you study at teachers’ college, and where did you first teach after graduating?
+            <span class="vi">Mẹ học gì ở trường sư phạm, và sau khi ra trường mẹ đến dạy ở đâu lần đầu?</span>
           </li>
           <li>
-            How did you feel when you passed the entrance exam? Did you expect to pass?
-            <span class="vi">Mẹ cảm thấy thế nào khi đậu vào sư phạm? Mẹ có nghĩ mình sẽ đậu không?</span>
+            When did Ba first come to the nhà đèn, how long before things became serious, and how did he formally meet ông ngoại and bà ngoại?
+            <span class="vi">Ba đến nhà đèn lần đầu khi nào, bao lâu sau thì mọi chuyện trở nên nghiêm túc, và ba gặp mặt ông bà ngoại như thế nào?</span>
           </li>
           <li>
-            What were you hoping your life as a teacher would look like?
-            <span class="vi">Mẹ tưởng tượng cuộc sống của một giáo viên sẽ như thế nào?</span>
-          </li>
-        </ol>
-      </div>
-
-      <div class="topic">
-        <h3 data-en="Meeting Ba &amp; The Interrupted Wedding" data-vi="Gặp Ba &amp; Đám Cưới Bị Gián Đoạn">Meeting Ba &amp; The Interrupted Wedding</h3>
-        <ol>
-          <li>
-            Tell me in detail about the first time Ba came to the nhà đèn. What was your first impression of him?
-            <span class="vi">Kể chi tiết về lần đầu tiên ba đến nhà đèn. Ấn tượng đầu tiên của mẹ về ba là gì?</span>
+            What happened from late March to April 30, 1975 — the evacuation from Nha Trang, and why you didn’t board a ship?
+            <span class="vi">Chủyện gì xảy ra từ cuối tháng 3 đến 30 tháng 4 năm 1975 — cuộc di tản từ Nha Trang, và lý do mẹ không lên tàu?</span>
           </li>
           <li>
-            When did you realize you had real feelings for him? Was there a particular moment?
-            <span class="vi">Khi nào mẹ nhận ra mình thực sự có tình cảm với ba? Có khoảnh khắc cụ thể nào không?</span>
+            How did you manage to keep your teaching job under the new government while Ba was in camp?
+            <span class="vi">Mẹ làm thế nào để giữ được chỗ dạy học dưới chính quyền mới trong khi ba đang trong trại?</span>
           </li>
           <li>
-            What was it like when Ba came to Tú Bông to meet ông ngoại and bà ngoại? How did you feel that day?
-            <span class="vi">Cảm giác thế nào khi ba về Tú Bông ra mắt ông bà ngoại? Hôm đó mẹ cảm thấy thế nào?</span>
+            After Ba came home in 1981, how did you live — where did you stay, what work did you do, and how did you manage?
+            <span class="vi">Sau khi ba về năm 1981, hai người sống như thế nào — ở đâu, làm gì, và tìm cách qua ngày như thế nào?</span>
           </li>
           <li>
-            Tell me about the wedding that was planned for 1975 — what were you imagining it would look like? What preparations had been made?
-            <span class="vi">Kể về đám cưới được dự định vào năm 1975 — mẹ tưởng tượng nó sẽ như thế nào? Đã chuẩn bị được những gì?</span>
+            When were Ba Tây and Duyên born, and what were they like as babies?
+            <span class="vi">Ba Tây và Duyên sinh năm nào, và họ như thế nào khi còn bé?</span>
           </li>
           <li>
-            What was it like to flee Nha Trang for Saigon in late March 1975? Describe that day.
-            <span class="vi">Cảm giác thế nào khi phải chạy từ Nha Trang vào Sài Gòn cuối tháng 3 năm 1975? Kể về ngày hôm đó.</span>
-          </li>
-          <li>
-            On April 30, when you decided not to board a ship — take me inside that moment. What exactly were you feeling?
-            <span class="vi">Ngày 30 tháng 4, khi mẹ quyết định không lên tàu — hãy kể về khoảnh khắc đó. Mẹ đang cảm thấy gì chính xác?</span>
+            What did you pack for the journey to America, and what did you have to leave behind?
+            <span class="vi">Mẹ đóng gói những gì cho chuyến đi sang Mỹ, và phải bỏ lại những gì?</span>
           </li>
         </ol>
       </div>
 
-      <div class="topic">
-        <h3 data-en="The Prison Years" data-vi="Những Năm Ba Đi Tù">The Prison Years</h3>
-        <ol>
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge both" data-en="Both Together" data-vi="Cả Hai">Both Together</span>
+        </div>
+        <ol class="q-list">
           <li>
-            When Ba went to report for re-education and didn't come back after ten days, what did you do? Who did you turn to?
-            <span class="vi">Khi ba đi trình diện mà sau mười ngày không thấy về, mẹ làm gì? Mẹ tìm đến ai?</span>
+            When and how did you officially get married? Was there a ceremony or celebration?
+            <span class="vi">Hai người chính thức kết hôn khi nào và như thế nào? Có tổ chức lễ lạt hay ăn mừng gì không?</span>
           </li>
           <li>
-            How did you manage to keep your teaching job under the new government? Did anyone help you, or did anyone make things difficult for you?
-            <span class="vi">Mẹ làm thế nào để giữ được chỗ dạy học dưới chế độ mới? Có ai giúp mẹ không, hay có ai gây khó dễ không?</span>
+            Tell me about the relatives you sponsored to come to America — who came, in what order, and what happened with each of them?
+            <span class="vi">Kể về những người thân mà ba mẹ bảo lãnh sang Mỹ — ai đến, theo thứ tự nào, và mỗi người sau đó như thế nào?</span>
           </li>
           <li>
-            Tell me about the trips to visit Ba (đi thăm nuôi) — how did you get to the camp, how long did the journey take, what did you bring, and what were those visits like?
-            <span class="vi">Kể về những lần mẹ đi thăm nuôi ba — mẹ đến trại bằng cách nào, đường đi mất bao lâu, mẹ mang gì vào, và những lần thăm đó như thế nào?</span>
-          </li>
-          <li>
-            How did your students and colleagues treat you, knowing your situation?
-            <span class="vi">Học trò và đồng nghiệp đối xử với mẹ thế nào khi biết hoàn cảnh của mẹ?</span>
-          </li>
-          <li>
-            What was it like when ông ngoại died, before Ba came home? How did you cope?
-            <span class="vi">Khi ông ngoại mất trước khi ba về, mẹ cảm thấy thế nào? Mẹ vượt qua giai đoạn đó như thế nào?</span>
-          </li>
-          <li>
-            What was the hardest single day of those six years?
-            <span class="vi">Ngày khó khăn nhất trong sáu năm đó là ngày nào?</span>
-          </li>
-          <li>
-            What was the day Ba finally came home like? Describe it.
-            <span class="vi">Ngày ba cuối cùng trở về như thế nào? Kể lại ngày đó.</span>
-          </li>
-        </ol>
-      </div>
-
-      <div class="topic">
-        <h3 data-en="After Ba's Return &amp; Life Before America" data-vi="Sau Khi Ba Về &amp; Những Năm Trước Khi Sang Mỹ">After Ba's Return &amp; Life Before America</h3>
-        <ol>
-          <li>
-            What was daily life like in the nhà đất at the back of ông ngoại's land? Describe the house and the routine.
-            <span class="vi">Cuộc sống hàng ngày trong căn nhà đất sau vườn ông ngoại như thế nào? Kể về ngôi nhà và nếp sinh hoạt.</span>
-          </li>
-          <li>
-            What school did you teach at after Ba came home? What was it like teaching under the new government?
-            <span class="vi">Mẹ dạy ở trường nào sau khi ba về? Dạy học dưới chính quyền mới như thế nào?</span>
-          </li>
-          <li>
-            When Ba Tây was born in 1988, describe the birth and those first days. What did you feel?
-            <span class="vi">Khi Ba Tây chào đời năm 1988, kể về lúc sinh và những ngày đầu. Mẹ cảm thấy thế nào?</span>
-          </li>
-          <li>
-            Tell me about Duyên's birth and early life. What was she like as a baby?
-            <span class="vi">Kể về lúc sinh Duyên và những ngày đầu đời của con. Duyên lúc nhỏ như thế nào?</span>
-          </li>
-          <li>
-            How did you feel when you found out your family would go to America? What were you most afraid of? Most excited about?
-            <span class="vi">Mẹ cảm thấy thế nào khi biết gia đình sẽ sang Mỹ? Mẹ sợ nhất điều gì? Háo hức nhất điều gì?</span>
-          </li>
-          <li>
-            What did you pack for the journey? What did you have to leave behind that you still think about?
-            <span class="vi">Mẹ đóng gói những gì cho chuyến đi? Có thứ gì phải bỏ lại mà mẹ vẫn còn nghĩ đến không?</span>
-          </li>
-        </ol>
-      </div>
-
-      <div class="topic">
-        <h3 data-en="America &amp; Reflection" data-vi="Nước Mỹ &amp; Suy Ngẫm">America &amp; Reflection</h3>
-        <ol>
-          <li>
-            What were your first days in Tacoma like? What did you notice? What confused or surprised you?
-            <span class="vi">Những ngày đầu ở Tacoma như thế nào? Mẹ chú ý điều gì? Điều gì làm mẹ bối rối hay ngạc nhiên?</span>
-          </li>
-          <li>
-            Did you work outside the home in the United States? What did you do?
-            <span class="vi">Mẹ có đi làm bên ngoài ở Mỹ không? Mẹ làm gì?</span>
-          </li>
-          <li>
-            How did you keep Vietnamese traditions alive in your home as the children were growing up?
-            <span class="vi">Mẹ giữ gìn những truyền thống Việt Nam trong gia đình như thế nào khi các con lớn lên?</span>
-          </li>
-          <li>
-            What do you miss most about Vietnam?
-            <span class="vi">Mẹ nhớ Việt Nam nhất điều gì?</span>
-          </li>
-          <li>
-            What is the proudest moment of your life?
-            <span class="vi">Khoảnh khắc tự hào nhất trong cuộc đời mẹ là gì?</span>
-          </li>
-          <li>
-            What do you want your grandchildren to understand about what your generation went through?
-            <span class="vi">Mẹ muốn các cháu hiểu gì về những gì thế hệ của mẹ đã trải qua?</span>
-          </li>
-          <li>
-            If you could speak directly to your great-grandchildren — people you may never meet — what would you tell them?
-            <span class="vi">Nếu mẹ có thể nói chuyện trực tiếp với các chắt — những người mẹ có thể không bao giờ gặp — mẹ sẽ nói gì?</span>
+            When you go back to Vietnam to visit now, what does it feel like — what has changed and what is the same?
+            <span class="vi">Bây giờ khi ba mẹ về Việt Nam thăm, cảm giác thế nào — điều gì đã thay đổi và điều gì vẫn còn?</span>
           </li>
         </ol>
       </div>
     </div>
 
-    <!-- ═══════════════════════════════ BOTH ═══════════════════════════════ -->
-    <div class="joint-section">
-      <h2
-        data-en="Questions for Both Together"
-        data-vi="Câu Hỏi Cho Cả Hai">Questions for Both Together</h2>
-      <div class="joint-sub"
-        data-en="Ask these when Ba and Mẹ are both present — the answers are richer with both voices."
-        data-vi="Hỏi những câu này khi cả ba lẫn mẹ đều có mặt — câu trả lời sẽ phong phú hơn khi có cả hai.">Ask these when Ba and Mẹ are both present — the answers are richer with both voices.</div>
+    <!-- ═══════════════════════════════ LEVEL 3 ═══════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-label" data-en="Level 3" data-vi="Mức Độ 3">Level 3</div>
+        <h2 data-en="The Texture" data-vi="Chất Liệu">The Texture</h2>
+        <div class="level-yield"
+          data-en="Specific memories, turning-point moments, and the stories behind the facts. This is where the memoir comes alive."
+          data-vi="Những ký ức cụ thể, khoảnh khắc bước ngoặt, và câu chuyện sau mỗi sự việc. Đây là lúc cuốn hồi ký trở nên sinh động.">Specific memories, turning-point moments, and the stories behind the facts. This is where the memoir comes alive.</div>
+      </div>
 
-      <div class="topic">
-        <h3 data-en="Raising the Children" data-vi="Nuôi Dưỡng Các Con">Raising the Children</h3>
-        <ol>
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge">Ba</span>
+          <h3>Nguyễn Văn Hiến</h3>
+        </div>
+        <ol class="q-list">
           <li>
-            Tell me your favorite memories of Ba Tây growing up — specific moments, funny stories, things he said or did.
-            <span class="vi">Kể những ký ức yêu thích nhất của ba mẹ về Ba Tây khi còn nhỏ — những khoảnh khắc cụ thể, chuyện buồn cười, điều con nói hay làm.</span>
+            What did Tân Long look like? What games did children play, and what was a typical day like for you as a boy?
+            <span class="vi">Tân Long trông như thế nào? Trẻ con chơi gì, và một ngày bình thường của ba hồi nhỏ trôi qua như thế nào?</span>
           </li>
           <li>
-            Tell me the same about Duyên — your clearest memories of her growing up.
-            <span class="vi">Kể những ký ức rõ nét nhất của ba mẹ về Duyên khi lớn lên.</span>
+            What was school like when you started at age nine — who were your teachers, what subjects did you like, and what did you imagine your future would hold?
+            <span class="vi">Trường học như thế nào khi ba bắt đầu đi học lúc chín tuổi — thầy cô là ai, môn gì ba thích nhất, và ba tưởng tượng tương lai của mình thế nào?</span>
           </li>
           <li>
-            What was the hardest thing about raising children in America when you were still figuring out the country yourselves?
+            Walk me through the Air Force selection step by step — from registering in Quy Nhơn to the medical exam in Saigon. How did you feel at each stage?
+            <span class="vi">Kể từng bước quá trình tuyển chọn không quân — từ đăng ký ở Quy Nhơn đến kiểm tra y tế ở Sài Gòn. Ba cảm thấy thế nào ở mỗi giai đoạn?</span>
+          </li>
+          <li>
+            Describe a specific memory from your years at the Nha Trang Air Base — a moment, a scene, a person you can still picture.
+            <span class="vi">Kể về một ký ức cụ thể từ những năm ở căn cứ không quân Nha Trang — một khoảnh khắc, một cảnh, một người ba vẫn còn nhớ rõ ràng.</span>
+          </li>
+          <li>
+            When did you first sense that South Vietnam might fall, and what did you think would happen to you and Mẹ?
+            <span class="vi">Ba bắt đầu linh cảm miền Nam có thể thua từ khi nào, và ba nghĩ chủyện gì sẽ xảy ra với ba và mẹ?</span>
+          </li>
+          <li>
+            Were there other prisoners in camp you became close to? What did you talk about, and what happened to them afterwards?
+            <span class="vi">Có tù nhân nào trong trại mà ba kết thân không? Các anh nói chuyện gì với nhau, và họ về sau ra sao?</span>
+          </li>
+          <li>
+            Describe the day you were released from camp — what they told you, what you did first, and the journey back.
+            <span class="vi">Kể về ngày ba được thả ra khỏi trại — người ta nói gì, việc đầu tiên ba làm, và hành trình trở về.</span>
+          </li>
+          <li>
+            What was the biggest culture shock in your first weeks in America?
+            <span class="vi">Cú sốc văn hóa lớn nhất trong những tuần đầu ở Mỹ là gì?</span>
+          </li>
+          <li>
+            When did you first feel like you truly belonged in America — was there a specific moment, or did it happen gradually?
+            <span class="vi">Khi nào ba lần đầu cảm thấy mình thực sự thuộc về nước Mỹ — có khoảnh khắc cụ thể nào, hay là sự thay đổi dần dần?</span>
+          </li>
+          <li>
+            Tell me about sponsoring bác Tám, cậu Nam Biên, and dượng Lương — the process, the difficulties, and what it felt like when each arrived.
+            <span class="vi">Kể về việc bảo lãnh bác Tám, cậu Nam Biên, và dượng Lương — quá trình, những khó khăn, và cảm giác thế nào khi mỗi người đến nơi.</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge me">Mẹ</span>
+          <h3>Ngô Thị Kim Anh</h3>
+        </div>
+        <ol class="q-list">
+          <li>
+            What were your happiest memories as a child — specific moments, not just general impressions?
+            <span class="vi">Ký ức hạnh phúc nhất của mẹ thời thơ ấu là gì — những khoảnh khắc cụ thể, không phải cảm giác chung chung?</span>
+          </li>
+          <li>
+            Tell me more about the girls who lived at the nhà đèn with you — who were they, what did you do together, and do you know what happened to any of them?
+            <span class="vi">Kể thêm về những cô gái cùng sống ở nhà đèn với mẹ — họ là ai, các bạn làm gì cùng nhau, và mẹ có biết ai trong số họ về sau ra sao không?</span>
+          </li>
+          <li>
+            Describe the moment you first realized you had real feelings for Ba — was there a particular visit, a particular thing he said?
+            <span class="vi">Kể về khoảnh khắc mẹ nhận ra mình thực sự có tình cảm với ba — có lần ghé thăm cụ thể nào, hay điều gì ba nói, khiến mẹ nhận ra?</span>
+          </li>
+          <li>
+            What did you imagine the 1975 wedding would look like? What preparations had been made before April 30 changed everything?
+            <span class="vi">Mẹ tưởng tượng đám cưới năm 1975 sẽ như thế nào? Đã chuẩn bị được những gì trước khi ngày 30 tháng 4 thay đổi tất cả?</span>
+          </li>
+          <li>
+            Tell me about the trips to visit Ba in camp (đi thăm nuôi) — how did you get there, how long did the journey take, and what were those visits like?
+            <span class="vi">Kể về những lần mẹ đi thăm nuôi ba — mẹ đến trại bằng cách nào, đường đi mất bao lâu, và những lần thăm đó như thế nào?</span>
+          </li>
+          <li>
+            What was the hardest single day of those six years while Ba was away?
+            <span class="vi">Ngày khó khăn nhất trong sáu năm khi ba đi xa là ngày nào?</span>
+          </li>
+          <li>
+            Describe the day Ba finally came home. What did you see when he walked in? What did you say to each other?
+            <span class="vi">Kể về ngày ba cuối cùng trở về. Mẹ thấy gì khi ba bước vào nhà? Hai người nói gì với nhau?</span>
+          </li>
+          <li>
+            How did you keep Vietnamese traditions alive in your home as the children were growing up in America?
+            <span class="vi">Mẹ gìn giữ những truyền thống Việt Nam trong gia đình như thế nào khi các con lớn lên ở Mỹ?</span>
+          </li>
+          <li>
+            Did you work outside the home in America? What did you do, and what was that like?
+            <span class="vi">Mẹ có đi làm bên ngoài ở Mỹ không? Mẹ làm gì, và điều đó như thế nào?</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge both" data-en="Both Together" data-vi="Cả Hai">Both Together</span>
+        </div>
+        <ol class="q-list">
+          <li>
+            Tell me your favorite specific memories of Ba Tây growing up — funny stories, things he said or did that you still laugh about.
+            <span class="vi">Kể những ký ức cụ thể yêu thích nhất của ba mẹ về Ba Tây khi còn nhỏ — chuyện buồn cười, điều con nói hay làm mà ba mẹ vẫn còn cười đến bây giờ.</span>
+          </li>
+          <li>
+            Tell me the same about Duyên — your clearest and fondest memories of her growing up.
+            <span class="vi">Kể những ký ức rõ nét và yêu thích nhất của ba mẹ về Duyên khi lớn lên.</span>
+          </li>
+          <li>
+            What was the hardest thing about raising children in America while you were still figuring out the country yourselves?
             <span class="vi">Điều khó khăn nhất khi nuôi con ở Mỹ trong khi bản thân ba mẹ còn đang tìm hiểu về đất nước này là gì?</span>
           </li>
           <li>
-            How did you teach the children about Vietnam, about the war, about what your generation went through?
-            <span class="vi">Ba mẹ dạy các con về Việt Nam, về chiến tranh, về những gì thế hệ của ba mẹ đã trải qua như thế nào?</span>
+            How did you teach the children about Vietnam, about the war, and about what your generation went through?
+            <span class="vi">Ba mẹ dạy các con về Việt Nam, về chiến tranh, và về những gì thế hệ của ba mẹ đã trải qua như thế nào?</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ LEVEL 4 ═══════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-label" data-en="Level 4" data-vi="Mức Độ 4">Level 4</div>
+        <h2 data-en="The Grain" data-vi="Chi Tiết">The Grain</h2>
+        <div class="level-yield"
+          data-en="Sensory details, precise scenes, and the emotions inside each moment. These questions bring readers into the room."
+          data-vi="Chi tiết cảm quan, cảnh vật cụ thể, và cảm xúc bên trong mỗi khoảnh khắc. Những câu hỏi này đưa người đọc vào tận nơi.">Sensory details, precise scenes, and the emotions inside each moment. These questions bring readers into the room.</div>
+      </div>
+
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge">Ba</span>
+          <h3>Nguyễn Văn Hiến</h3>
+        </div>
+        <ol class="q-list">
+          <li>
+            Close your eyes and go back to Tân Long. What is the first smell or sound that comes to you?
+            <span class="vi">Nhắm mắt lại và trở về Tân Long. Mùi hương hay âm thanh đầu tiên nào hiện ra với ba?</span>
+          </li>
+          <li>
+            Describe the exact moment you found out you had passed the Air Force selection — where you were, who told you, what you felt.
+            <span class="vi">Kể về khoảnh khắc chính xác khi ba biết mình đã trúng tuyển không quân — ba đang ở đâu, ai báo cho ba, ba cảm thấy thế nào.</span>
+          </li>
+          <li>
+            Describe the sounds, smells, and atmosphere of Nha Trang Air Base on a typical early morning.
+            <span class="vi">Kể về âm thanh, mùi hương, và không khí của căn cứ không quân Nha Trang vào một buổi sáng sớm bình thường.</span>
+          </li>
+          <li>
+            Walk me through April 30, 1975 hour by hour — where you were, what you saw with your own eyes, what you heard people saying around you.
+            <span class="vi">Kể lại ngày 30 tháng 4 năm 1975 từng giờ — ba đang ở đâu, mắt ba thấy gì, ba nghe người ta nói gì xung quanh.</span>
+          </li>
+          <li>
+            Describe what the re-education camp looked like when you first arrived — the layout, the buildings, and the faces of the other men.
+            <span class="vi">Kể về trại cải tạo trông như thế nào khi ba lần đầu đến — cách bố trí, những tòa nhà, và gương mặt những người khác.</span>
+          </li>
+          <li>
+            Describe what you ate in camp, where you slept, and what a day of labor felt like physically.
+            <span class="vi">Kể về những gì ba ăn trong trại, ba ngủ ở đâu, và một ngày lao động cảm giác thể chất như thế nào.</span>
+          </li>
+          <li>
+            How did you keep your spirit alive — what did you think about at night, what did you tell yourself to keep going?
+            <span class="vi">Ba giữ tinh thần sống bằng cách nào — ba nghĩ gì vào ban đêm, ba tự nhủ điều gì để vững vàng?</span>
+          </li>
+          <li>
+            Describe the moment you landed in America for the first time — the first thing you saw, smelled, or heard.
+            <span class="vi">Kể về khoảnh khắc ba đặt chân đến nước Mỹ lần đầu tiên — điều đầu tiên ba thấy, ngửi, hay nghe là gì.</span>
+          </li>
+          <li>
+            Describe a specific day of landscaping work — what time you started, the physical feel of the tools and soil, something you noticed that day.
+            <span class="vi">Kể về một ngày làm vườn cụ thể — ba bắt đầu từ mấy giờ, cảm giác thể chất của dụng cụ và đất, điều gì ba chú ý hôm đó.</span>
           </li>
         </ol>
       </div>
 
-      <div class="topic">
-        <h3 data-en="Vietnam &amp; Identity" data-vi="Việt Nam &amp; Bản Sắc">Vietnam &amp; Identity</h3>
-        <ol>
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge me">Mẹ</span>
+          <h3>Ngô Thị Kim Anh</h3>
+        </div>
+        <ol class="q-list">
           <li>
-            When you go back to Vietnam now to visit, what does it feel like? What has changed, what is the same?
-            <span class="vi">Bây giờ khi ba mẹ về Việt Nam thăm, cảm giác thế nào? Điều gì đã thay đổi, điều gì vẫn còn?</span>
+            Close your eyes and go back to Vạn Khánh or Tú Bông. What do you hear first — the sea, voices, birds? What do you smell?
+            <span class="vi">Nhắm mắt lại và trở về Vạn Khánh hay Tú Bông. Âm thanh đầu tiên mẹ nghe là gì — biển, tiếng người, tiếng chim? Mẹ ngửi thấy gì?</span>
           </li>
           <li>
-            Have you ever thought seriously about moving back to Vietnam? What has kept you in America?
+            Describe the moment you found out you had passed the teachers’ college entrance exam — who was with you and what did you do?
+            <span class="vi">Kể về khoảnh khắc mẹ biết mình đã đậu vào trường sư phạm — ai đang ở bên mẹ và mẹ đã làm gì?</span>
+          </li>
+          <li>
+            Describe the first time Ba came to the nhà đèn — what he was wearing, how he introduced himself, what you thought of him.
+            <span class="vi">Kể về lần đầu tiên ba đến nhà đèn — ba mặc gì, ba tự giới thiệu như thế nào, mẹ nghĩ gì về ba.</span>
+          </li>
+          <li>
+            Describe the feeling of leaving Nha Trang in late March 1975 — what you carried, who was with you, the moment you looked back.
+            <span class="vi">Kể về cảm giác rời Nha Trang cuối tháng 3 năm 1975 — mẹ mang theo gì, ai đi cùng, khoảnh khắc mẹ ngoái nhìn lại.</span>
+          </li>
+          <li>
+            When Ba was taken for re-education and didn’t come back after ten days — what did you do that first day? Who did you go to?
+            <span class="vi">Khi ba đi trình diện mà sau mười ngày không thấy về — ngày đầu tiên đó mẹ làm gì? Mẹ tìm đến ai?</span>
+          </li>
+          <li>
+            What did you bring on the visits to see Ba in camp, and what was the feeling at the end of each visit when you had to leave?
+            <span class="vi">Mẹ mang gì vào thăm ba trong trại, và cảm giác thế nào ở cuối mỗi lần thăm khi mẹ phải ra về?</span>
+          </li>
+          <li>
+            Describe the exact moment Ba walked in the door when he was finally released. What did he look like? What did you say?
+            <span class="vi">Kể về khoảnh khắc chính xác khi ba bước qua cửa sau khi được thả. Ba trông như thế nào? Mẹ đã nói gì?</span>
+          </li>
+          <li>
+            Describe your first meal in America — what was it, where were you eating it, and what did it taste like?
+            <span class="vi">Kể về bữa ăn đầu tiên của mẹ ở Mỹ — đó là gì, mẹ ăn ở đâu, và nó có vị như thế nào?</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge both" data-en="Both Together" data-vi="Cả Hai">Both Together</span>
+        </div>
+        <ol class="q-list">
+          <li>
+            Is there a Vietnamese dish you both make that you learned from your own parents? Can you teach it step by step — for the record?
+            <span class="vi">Có món ăn Việt Nam nào ba mẹ cùng nấu mà học từ cha mẹ mình không? Ba mẹ có thể dạy nấu từng bước — để ghi lại — không?</span>
+          </li>
+          <li>
+            Have you ever thought seriously about moving back to Vietnam? What keeps you in America?
             <span class="vi">Ba mẹ có bao giờ nghĩ nghiêm túc đến việc trở về Việt Nam sống không? Điều gì giữ ba mẹ ở lại Mỹ?</span>
           </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ LEVEL 5 ═══════════════════════════════ -->
+    <div class="level">
+      <div class="level-header">
+        <div class="level-label" data-en="Level 5" data-vi="Mức Độ 5">Level 5</div>
+        <h2 data-en="The Archive" data-vi="Kho Lưu Trữ">The Archive</h2>
+        <div class="level-yield"
+          data-en="Documents, photographs, family trees, and the stories never spoken aloud. These preserve what would otherwise be lost."
+          data-vi="Tài liệu, hình ảnh, phả hệ, và những câu chuyện chưa bao giờ được nói to. Những thứ này gìn giữ những điều mà nếu không sẽ mất đi mãi mãi.">Documents, photographs, family trees, and the stories never spoken aloud. These preserve what would otherwise be lost.</div>
+      </div>
+
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge">Ba</span>
+          <h3>Nguyễn Văn Hiến</h3>
+        </div>
+        <ol class="q-list">
           <li>
-            What Vietnamese traditions, foods, or practices do you hope will survive in this family for the next hundred years?
-            <span class="vi">Những truyền thống, món ăn, hay phong tục Việt Nam nào ba mẹ hy vọng sẽ tồn tại trong gia đình mình một trăm năm nữa?</span>
+            Can you draw the Nguyễn family tree as far back as you can remember — names, relationships, where each person lived and what happened to them?
+            <span class="vi">Ba có thể vẽ phả hệ nhà Nguyễn xa nhất mà ba nhớ được không — tên, quan hệ, từng người sống ở đâu và số phận ra sao?</span>
           </li>
           <li>
-            Is there a Vietnamese dish you make that you learned from your own parents, that you hope the grandchildren will learn to make?
-            <span class="vi">Có món ăn Việt Nam nào ba mẹ học từ ông bà mà ba mẹ hy vọng các cháu sẽ học nấu không?</span>
+            Are there stories about ông nội Nguyễn Hội or your grandparents that you have never told your children?
+            <span class="vi">Có câu chuyện nào về ông Nội Nguyễn Hội hay ông bà cố mà ba chưa bao giờ kể cho con cái không?</span>
+          </li>
+          <li>
+            Do you have any papers, discharge documents, photographs, or letters from your Air Force years?
+            <span class="vi">Ba có còn giữ giấy tờ, lệnh xuất ngũ, hình ảnh, hay thư từ nào từ những năm trong không quân không?</span>
+          </li>
+          <li>
+            Is there anything about the years in the re-education camp that you have never spoken aloud — something too painful or too private to say until now?
+            <span class="vi">Có điều gì về những năm trong trại cải tạo mà ba chưa bao giờ nói thành lời — điều gì quá đau hay quá riêng tư để nói ra cho đến bây giờ?</span>
+          </li>
+          <li>
+            Is there a specific person from your past — a friend, a fellow officer, a prisoner — whose story you want preserved alongside yours?
+            <span class="vi">Có người nào cụ thể trong quá khứ của ba — một người bạn, một đồng nghiệp, một người cùng trại — mà ba muốn câu chuyện của họ được ghi lại cùng với câu chuyện của ba?</span>
+          </li>
+          <li>
+            What question do you wish someone would ask you about your life — something no one has ever asked?
+            <span class="vi">Câu hỏi nào về cuộc đời ba mà ba ước ai đó sẽ hỏi — điều gì chưa ai bao giờ hỏi?</span>
           </li>
         </ol>
       </div>
 
-      <div class="topic">
-        <h3 data-en="For the Record" data-vi="Để Ghi Lại">For the Record</h3>
-        <ol>
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge me">Mẹ</span>
+          <h3>Ngô Thị Kim Anh</h3>
+        </div>
+        <ol class="q-list">
           <li>
-            Are there any family stories — about relatives, ancestors, or things that happened — that you have never told the children but think they should know?
-            <span class="vi">Có chuyện gia đình nào — về người thân, tổ tiên, hay những điều đã xảy ra — mà ba mẹ chưa kể cho các con nhưng nghĩ chúng nên biết không?</span>
+            Can you draw the Ngô family tree as far back as you can remember — ông ngoại’s parents, their siblings, and where each branch of the family went?
+            <span class="vi">Mẹ có thể vẽ phả hệ nhà Ngô xa nhất mà mẹ nhớ được không — cha mẹ ông ngoại, anh chị em của họ, và từng nhánh gia đình đi về đâu?</span>
           </li>
+          <li>
+            Are there stories about ông ngoại or bà ngoại — things they did or said — that you have never fully told the children?
+            <span class="vi">Có câu chuyện nào về ông ngoại hay bà ngoại — điều họ làm hay nói — mà mẹ chưa bao giờ kể đầy đủ cho con cái nghe không?</span>
+          </li>
+          <li>
+            Do you have any letters, school certificates, teaching documents, or photographs from Vietnam that we can look at together?
+            <span class="vi">Mẹ có còn giữ thư từ, bằng tốt nghiệp, giấy tờ dạy học, hay hình ảnh nào từ Việt Nam mà chúng ta có thể cùng xem không?</span>
+          </li>
+          <li>
+            Is there anything about the six years Ba was away that you carried completely alone — something you have never said aloud?
+            <span class="vi">Có điều gì về sáu năm khi ba đi xa mà mẹ mang hoàn toàn một mình — điều gì mẹ chưa bao giờ nói thành lời không?</span>
+          </li>
+          <li>
+            Are there relatives — cousins, distant family in Khánh Hòa or elsewhere — whose names and stories should be preserved before they are forgotten?
+            <span class="vi">Có người thân nào — anh chị em họ, họ hàng xa ở Khánh Hòa hay nơi khác — mà tên và câu chuyện của họ cần được ghi lại trước khi bị quên lãng không?</span>
+          </li>
+          <li>
+            What question do you wish someone would ask you about your life?
+            <span class="vi">Câu hỏi nào về cuộc đời mẹ mà mẹ ước ai đó sẽ hỏi mẹ?</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="person-block">
+        <div class="person-block-header">
+          <span class="person-badge both" data-en="Both Together" data-vi="Cả Hai">Both Together</span>
+        </div>
+        <ol class="q-list">
           <li>
             What photographs, letters, or documents from Vietnam do you still have? Can we look at them together and you can tell me about each one?
-            <span class="vi">Ba mẹ còn giữ những tấm ảnh, thư từ, hay giấy tờ nào từ Việt Nam không? Chúng ta có thể xem cùng nhau và ba mẹ kể về từng thứ không?</span>
+            <span class="vi">Ba mẹ còn giữ hình ảnh, thư từ, hay giấy tờ nào từ Việt Nam không? Chúng ta có thể cùng xem và ba mẹ kể về từng thứ không?</span>
           </li>
           <li>
-            Thirty years from now, when Ba Tây's children are telling their own children about this family — what do you most want them to get right?
+            Are there any family stories — about relatives, ancestors, or things that happened — that you have never told the children but think they should know?
+            <span class="vi">Có câu chuyện gia đình nào — về người thân, tổ tiên, hay những điều đã xảy ra — mà ba mẹ chưa kể cho con cái nhưng nghĩ chúng nên biết không?</span>
+          </li>
+          <li>
+            Is there anything you want to say to each other, on the record, that you have never said in front of the family?
+            <span class="vi">Có điều gì ba mẹ muốn nói với nhau, để ghi lại, mà hai người chưa bao giờ nói trước mặt gia đình không?</span>
+          </li>
+          <li>
+            Thirty years from now, when Ba Tây’s children are telling their own children about this family — what do you most want them to get right?
             <span class="vi">Ba mươi năm nữa, khi các con của Ba Tây kể về gia đình mình cho con cái của chúng — điều ba mẹ muốn nhất là chúng kể đúng là điều gì?</span>
           </li>
         </ol>
